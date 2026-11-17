@@ -1,0 +1,61 @@
+PLATAFORMA WEB: APRENDIZAJE DE FUNCIONES CUADRÁTICAS
+Institución Educativa Armando Solano · Paipa, Boyacá · 2026
+
+CONTENIDO DEL PROYECTO
+======================
+- index.html: página principal (versión por carpetas).
+- css/estilos.css: diseño, colores, animaciones y estilos de impresión.
+- js/datos.js: preguntas del quiz y de la evaluación, juegos y definiciones.
+- js/grafica.js: motor del plano cartesiano y la gráfica interactiva.
+- js/juegos.js: los cinco juegos.
+- js/evaluacion.js: quiz, evaluación final, certificado y recomendaciones.
+- js/app.js: navegación, progreso guardado y panel de retroalimentación.
+- assets/plus-jakarta-latin.woff2: fuente local incluida en el CSS.
+- Plataforma_Funciones_Cuadraticas.html: TODO el proyecto en un solo archivo.
+- construir_archivo_unico.py: regenera la versión de un solo archivo.
+
+CÓMO ABRIRLA
+============
+Opción 1 (recomendada para revisar en el computador):
+  Abre index.html con doble clic. No necesita servidor ni internet.
+
+Opción 2 (un solo archivo, ideal para enviar por correo o USB):
+  Abre Plataforma_Funciones_Cuadraticas.html con cualquier navegador moderno
+  (Chrome, Edge, Firefox o Safari). También funciona sin conexión.
+
+Opción 3 (publicación en internet):
+  Sube la carpeta completa a GitHub Pages, Netlify, Vercel o cualquier
+  hosting estático. El archivo de entrada es index.html.
+
+CÓMO SE GUARDA EL PROGRESO
+==========================
+El avance se guarda en el almacenamiento local del navegador
+(localStorage) del dispositivo donde se usa la página. No se envía a
+ningún servidor. Si se borran los datos del navegador, el progreso se
+pierde. El botón circular de la cabecera y el botón "Reiniciar todo mi
+progreso" de la sección Retroalimentación permiten empezar de nuevo.
+
+SECCIONES
+=========
+Inicio, Explicaciones (9 conceptos), Ejemplos resueltos (6 situaciones),
+Gráfica interactiva, Juegos (5), Quiz (18 preguntas), Evaluación final
+(18 preguntas y certificado), Retroalimentación, Recursos adicionales,
+Ayuda y Créditos.
+
+EVALUACIÓN
+==========
+Cada cuestionario tiene 6 preguntas fáciles, 6 medias y 6 difíciles.
+Cada respuesta muestra retroalimentación inmediata. Al finalizar se
+presentan el puntaje, el porcentaje, las respuestas correctas e
+incorrectas, una recomendación de estudio y el historial de intentos.
+En la evaluación final, un resultado igual o superior al 70 % genera un
+certificado imprimible con el nombre del estudiante.
+
+AUTORES
+=======
+Carlos Andrés Moreno Chaparro
+Juan David Fonseca López
+David Santiago Sánchez Pedroza
+Docente orientador: Milton Ney Pedroza Soler
+Grado 10-1 · Área de Matemáticas · I. E. Armando Solano
+Paipa, Boyacá (Colombia) · 2026

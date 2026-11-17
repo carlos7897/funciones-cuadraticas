@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2b1d74">
+  <meta name="description" content="Aprende funciones cuadráticas con explicaciones, gráfica interactiva, juegos, retos y evaluaciones para grado décimo en la I.E. Armando Solano.">
+  <meta name="keywords" content="funciones cuadráticas, parábola, vértice, discriminante, juegos matemáticos, grado décimo, Paipa">
+  <meta name="author" content="Carlos Andrés Moreno Chaparro, Juan David Fonseca López, David Santiago Sánchez Pedroza">
+  <title>Funciones Cuadráticas · Plataforma interactiva de aprendizaje</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%236d4aff'/%3E%3Cpath d='M16 24 Q50 92 84 24' stroke='white' stroke-width='8' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='50' cy='59' r='6' fill='%23ffd166'/%3E%3C/svg%3E">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Funciones Cuadráticas · Aprende jugando">
+  <meta property="og:description" content="Una plataforma visual y jugable para dominar parábolas, vértices, raíces y aplicaciones reales.">
+  <meta property="og:site_name" content="Funciones Cuadráticas 10°">
+  <meta name="twitter:card" content="summary">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <a class="solo-lectores" href="#contenido">Saltar al contenido principal</a>
+
+  <!-- ================= ICONOS (sprite SVG) ================= -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="gradAnillo" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#6d4aff"/>
+        <stop offset=".55" stop-color="#a78bfa"/>
+        <stop offset="1" stop-color="#ff5d9e"/>
+      </linearGradient>
+    </defs>
+    <symbol id="i-logo" viewBox="0 0 24 24"><path d="M4 4c4.2 0 3.6 15 8 15s3.8-15 8-15"/><circle cx="12" cy="17.4" r="1.5"/></symbol>
+    <symbol id="i-inicio" viewBox="0 0 24 24"><path d="M3 11.2 12 3l9 8.2V20a1 1 0 0 1-1 1h-5.5v-6h-5v6H4a1 1 0 0 1-1-1z"/></symbol>
+    <symbol id="i-libro" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5V5.5M20 18v3H6.5"/></symbol>
+    <symbol id="i-lista" viewBox="0 0 24 24"><path d="M9 6h12M9 12h12M9 18h12"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></symbol>
+    <symbol id="i-grafica" viewBox="0 0 24 24"><path d="M4 3v18h17"/><path d="M6 17.5Q12 3 18 17.5"/><circle cx="12" cy="10.6" r="1.2"/></symbol>
+    <symbol id="i-juego" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8" cy="8" r="1"/><circle cx="16" cy="8" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="8" cy="16" r="1"/><circle cx="16" cy="16" r="1"/></symbol>
+    <symbol id="i-quiz" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.4 9.2a2.6 2.6 0 1 1 3.9 2.3c-.8.5-1.3 1-1.3 2v.3"/><circle cx="12" cy="17.2" r=".7" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-medalla" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.4 14.2 7 22l5-3 5 3-1.4-7.8"/><path d="m12 6 .9 1.8 2 .3-1.4 1.4.3 2-1.8-1-1.8 1 .3-2-1.4-1.4 2-.3z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8 8 0 0 1-8 8H8l-5 3v-5.6A8 8 0 1 1 21 11.5z"/><path d="M8 11h.01M12 11h.01M16 11h.01"/></symbol>
+    <symbol id="i-carpeta" viewBox="0 0 24 24"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H9l2 2h7.5A2.5 2.5 0 0 1 21 9.5v8A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5z"/></symbol>
+    <symbol id="i-ayuda" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.7 2.2c-.8.5-1.2 1-1.2 1.9v.2"/><circle cx="12" cy="17" r=".7" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-usuarios" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M16 5.2a3.2 3.2 0 0 1 0 6.1"/><path d="M17.5 14.4a5.5 5.5 0 0 1 3 5.1"/></symbol>
+    <symbol id="i-reiniciar" viewBox="0 0 24 24"><path d="M3.5 12a8.5 8.5 0 1 0 2.7-6.2"/><path d="M3 4.5v5h5"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-cerrar" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-flecha-izq" viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-check-circulo" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.8 2.8L16 9.5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-x-circulo" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6M15 9l-6 6"/></symbol>
+    <symbol id="i-reloj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></symbol>
+    <symbol id="i-trofeo" viewBox="0 0 24 24"><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4.5A2.5 2.5 0 0 0 7 10.5M17 6h2.5A2.5 2.5 0 0 1 17 10.5"/><path d="M12 14v4M8 21h8M9 21v-3h6v3"/></symbol>
+    <symbol id="i-estrella" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></symbol>
+    <symbol id="i-diana" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-bombilla" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.3 1.1 2.1v.1h5v-.1c0-.8.4-1.6 1.1-2.1A6 6 0 0 0 12 3z"/></symbol>
+    <symbol id="i-alerta" viewBox="0 0 24 24"><path d="M10.3 3.8 2.6 17a1.6 1.6 0 0 0 1.4 2.4h16a1.6 1.6 0 0 0 1.4-2.4L13.7 3.8a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><circle cx="12" cy="16.5" r=".7" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="8" r=".7" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-enlace" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.2 1.1"/><path d="M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.2-1.1"/></symbol>
+    <symbol id="i-imprimir" viewBox="0 0 24 24"><path d="M7 8V3h10v5"/><rect x="3" y="8" width="18" height="9" rx="2"/><path d="M7 14h10v7H7z"/><circle cx="17.5" cy="11" r=".6" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-descargar" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></symbol>
+    <symbol id="i-escuela" viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12"/><path d="M9 21v-5h6v5M9 11h.01M15 11h.01"/></symbol>
+    <symbol id="i-calendario" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+    <symbol id="i-ubicacion" viewBox="0 0 24 24"><path d="M20 10c0 5.5-8 11-8 11S4 15.5 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+    <symbol id="i-barras" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m10 8 6 4-6 4z"/></symbol>
+    <symbol id="i-lapiz" viewBox="0 0 24 24"><path d="M4 20h4L20 8a2.8 2.8 0 0 0-4-4L4 16z"/><path d="m14 6 4 4"/></symbol>
+    <symbol id="i-ojo" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-rayo" viewBox="0 0 24 24"><path d="M13 2 3.5 14H10l-1 8L19 10h-6z"/></symbol>
+    <symbol id="i-formula" viewBox="0 0 24 24"><path d="M3 12h3l3 7 4-14h8"/><path d="M14 17h7M14 21h7" opacity=".4"/></symbol>
+    <symbol id="i-dado" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8" cy="8" r="1.1" fill="currentColor" stroke="none"/><circle cx="16" cy="8" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="8" cy="16" r="1.1" fill="currentColor" stroke="none"/><circle cx="16" cy="16" r="1.1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-luna" viewBox="0 0 24 24"><path d="M20 15.4A8.5 8.5 0 0 1 8.6 4a8.5 8.5 0 1 0 11.4 11.4Z"/><path d="M17 3v3M20.5 4.5h-3"/></symbol>
+    <symbol id="i-sol" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-corazon" viewBox="0 0 24 24"><path d="M20.8 5.8a5.5 5.5 0 0 0-7.8 0L12 6.8l-1-1a5.5 5.5 0 0 0-7.8 7.8L12 22l8.8-8.4a5.5 5.5 0 0 0 0-7.8z"/></symbol>
+    <symbol id="i-rombo" viewBox="0 0 24 24"><path d="M12 2 22 12 12 22 2 12z"/></symbol>
+
+    <!-- Diagramas reutilizables -->
+    <symbol id="d-parabola" viewBox="0 0 420 240">
+      <g stroke="#e3e6f4" stroke-width="1">
+        <path d="M40 30h340M40 70h340M40 110h340M40 150h340M40 190h340"/>
+        <path d="M50 25v200M90 25v200M130 25v200M170 25v200M250 25v200M290 25v200M330 25v200M370 25v200"/>
+      </g>
+      <line x1="18" y1="170" x2="404" y2="170" stroke="#8e95b5" stroke-width="1.6"/>
+      <line x1="210" y1="16" x2="210" y2="226" stroke="#8e95b5" stroke-width="1.6"/>
+      <line x1="210" y1="30" x2="210" y2="216" stroke="#f5a524" stroke-width="1.8" stroke-dasharray="6 6"/>
+      <path d="M30 120 Q210 260 390 120" fill="none" stroke="#6d4aff" stroke-width="3.4" stroke-linecap="round"/>
+      <circle cx="114" cy="170" r="5.5" fill="#0fae9c" stroke="#fff" stroke-width="2"/>
+      <circle cx="306" cy="170" r="5.5" fill="#0fae9c" stroke="#fff" stroke-width="2"/>
+      <circle cx="210" cy="190" r="7" fill="#ff6b6b" stroke="#fff" stroke-width="2.5"/>
+      <g font-family="Inter, sans-serif" font-size="12" fill="#5f6785">
+        <text x="396" y="187">x</text><text x="216" y="24">y</text>
+        <text x="217" y="46" fill="#b97700" font-weight="700">x = h</text>
+        <text x="118" y="189" fill="#0a8576" font-weight="700">raíz</text>
+        <text x="310" y="189" fill="#0a8576" font-weight="700">raíz</text>
+        <text x="222" y="206" fill="#d94a4a" font-weight="700">V(h, k)</text>
+        <text x="38" y="38" fill="#5232d6" font-weight="700" font-size="13">f(x) = ax² + bx + c</text>
+      </g>
+    </symbol>
+
+    <symbol id="d-anchos" viewBox="0 0 420 220">
+      <line x1="20" y1="180" x2="404" y2="180" stroke="#8e95b5" stroke-width="1.6"/>
+      <line x1="210" y1="15" x2="210" y2="205" stroke="#8e95b5" stroke-width="1.6"/>
+      <path d="M150 45 Q210 330 270 45" fill="none" stroke="#ff6b6b" stroke-width="3"/>
+      <path d="M95 45 Q210 330 325 45" fill="none" stroke="#6d4aff" stroke-width="3"/>
+      <path d="M35 45 Q210 330 385 45" fill="none" stroke="#0fae9c" stroke-width="3"/>
+      <circle cx="210" cy="180" r="5" fill="#ffb020" stroke="#fff" stroke-width="2"/>
+      <g font-family="Inter, sans-serif" font-size="12" font-weight="700">
+        <text x="150" y="28" fill="#d94a4a">a = 3</text>
+        <text x="95" y="28" fill="#5232d6">a = 1</text>
+        <text x="35" y="28" fill="#0a8576">a = 0,25</text>
+      </g>
+      <text x="210" y="200" font-family="Inter, sans-serif" font-size="11" fill="#5f6785" text-anchor="middle">mismo vértice, distinto ancho</text>
+    </symbol>
+
+    <symbol id="d-discriminante" viewBox="0 0 420 170">
+      <g font-family="Inter, sans-serif" font-size="11">
+        <g>
+          <line x1="10" y1="100" x2="130" y2="100" stroke="#8e95b5" stroke-width="1.4"/>
+          <path d="M15 40 Q70 190 125 40" fill="none" stroke="#0fae9c" stroke-width="2.8"/>
+          <circle cx="45" cy="100" r="4" fill="#0fae9c" stroke="#fff" stroke-width="1.6"/>
+          <circle cx="95" cy="100" r="4" fill="#0fae9c" stroke="#fff" stroke-width="1.6"/>
+          <text x="70" y="155" text-anchor="middle" fill="#0a8576" font-weight="700">Δ &gt; 0</text>
+          <text x="70" y="168" text-anchor="middle" fill="#5f6785">dos raíces</text>
+        </g>
+        <g>
+          <line x1="145" y1="100" x2="265" y2="100" stroke="#8e95b5" stroke-width="1.4"/>
+          <path d="M150 55 Q205 145 260 55" fill="none" stroke="#f5a524" stroke-width="2.8"/>
+          <circle cx="205" cy="100" r="4.5" fill="#f5a524" stroke="#fff" stroke-width="1.6"/>
+          <text x="205" y="155" text-anchor="middle" fill="#a56a00" font-weight="700">Δ = 0</text>
+          <text x="205" y="168" text-anchor="middle" fill="#5f6785">una raíz doble</text>
+        </g>
+        <g>
+          <line x1="280" y1="100" x2="410" y2="100" stroke="#8e95b5" stroke-width="1.4"/>
+          <path d="M285 70 Q340 100 395 70" fill="none" stroke="#ff6b6b" stroke-width="2.8"/>
+          <text x="340" y="155" text-anchor="middle" fill="#c22b3a" font-weight="700">Δ &lt; 0</text>
+          <text x="340" y="168" text-anchor="middle" fill="#5f6785">sin raíces reales</text>
+        </g>
+      </g>
+    </symbol>
+  </svg>
+
+  <!-- ================= CABECERA ================= -->
+  <div class="barra-fija">
+    <header class="cabecera">
+      <div class="contenedor cabecera-fila">
+        <a class="marca" href="#inicio" data-seccion="inicio" aria-label="Ir al inicio">
+          <span class="marca-logo"><svg class="icono"><use href="#i-logo"/></svg></span>
+          <span class="marca-texto">
+            <strong>Funciones cuadráticas</strong>
+            <span>Plataforma de aprendizaje · 10°</span>
+          </span>
+        </a>
+
+        <nav class="navegacion" id="navegacion" aria-label="Menú principal">
+          <a href="#inicio" class="enlace-nav activo" data-seccion="inicio"><svg class="icono"><use href="#i-inicio"/></svg>Inicio</a>
+          <a href="#explicaciones" class="enlace-nav" data-seccion="explicaciones"><svg class="icono"><use href="#i-libro"/></svg>Explicaciones</a>
+          <a href="#ejemplos" class="enlace-nav" data-seccion="ejemplos"><svg class="icono"><use href="#i-lista"/></svg>Ejemplos</a>
+          <a href="#grafica" class="enlace-nav" data-seccion="grafica"><svg class="icono"><use href="#i-grafica"/></svg>Gráfica</a>
+          <a href="#juegos" class="enlace-nav" data-seccion="juegos"><svg class="icono"><use href="#i-juego"/></svg>Juegos</a>
+          <a href="#quiz" class="enlace-nav" data-seccion="quiz"><svg class="icono"><use href="#i-quiz"/></svg>Quiz</a>
+          <a href="#evaluacion" class="enlace-nav" data-seccion="evaluacion"><svg class="icono"><use href="#i-medalla"/></svg>Evaluación</a>
+          <a href="#retroalimentacion" class="enlace-nav" data-seccion="retroalimentacion"><svg class="icono"><use href="#i-chat"/></svg>Retroalimentación</a>
+          <div class="menu-mas" id="menuMas">
+            <button class="enlace-nav" id="btnMenuMas" aria-expanded="false" aria-haspopup="true">Más <svg class="icono"><use href="#i-chevron"/></svg></button>
+            <div class="menu-mas-panel" role="menu">
+              <a href="#recursos" class="enlace-nav" data-seccion="recursos"><svg class="icono"><use href="#i-carpeta"/></svg>Recursos</a>
+              <a href="#ayuda" class="enlace-nav" data-seccion="ayuda"><svg class="icono"><use href="#i-ayuda"/></svg>Ayuda</a>
+              <a href="#creditos" class="enlace-nav" data-seccion="creditos"><svg class="icono"><use href="#i-usuarios"/></svg>Créditos</a>
+            </div>
+          </div>
+          <a href="#recursos" class="enlace-nav nav-extra" data-seccion="recursos"><svg class="icono"><use href="#i-carpeta"/></svg>Recursos</a>
+          <a href="#ayuda" class="enlace-nav nav-extra" data-seccion="ayuda"><svg class="icono"><use href="#i-ayuda"/></svg>Ayuda</a>
+          <a href="#creditos" class="enlace-nav nav-extra" data-seccion="creditos"><svg class="icono"><use href="#i-usuarios"/></svg>Créditos</a>
+        </nav>
+
+        <div class="acciones-cabecera">
+          <a class="chip-progreso" href="#retroalimentacion" data-seccion="retroalimentacion" title="Ver mi progreso">
+            <svg class="mini-anillo" viewBox="0 0 36 36" aria-hidden="true">
+              <circle class="fondo" cx="18" cy="18" r="15"/>
+              <circle class="valor" id="anilloCabecera" cx="18" cy="18" r="15" stroke-dasharray="0 94.2"/>
+            </svg>
+            <span class="texto-progreso"><span id="textoProgreso">0%</span></span>
+          </a>
+          <button class="btn-icono" id="btnTema" type="button" title="Cambiar tema claro u oscuro" aria-label="Cambiar tema claro u oscuro"><svg class="icono"><use href="#i-luna"/></svg></button>
+          <button class="btn-icono peligro" id="btnReiniciarCabecera" type="button" title="Reiniciar todo el progreso" aria-label="Reiniciar todo el progreso">
+            <svg class="icono"><use href="#i-reiniciar"/></svg>
+          </button>
+          <button class="btn-icono btn-menu" id="btnMenu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navegacion">
+            <svg class="icono"><use href="#i-menu"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="linea-progreso"><span id="barraProgreso"></span></div>
+  </div>
+
+  <main id="contenido">
+    <!-- ================= INICIO ================= -->
+    <section class="seccion activa" id="inicio" aria-labelledby="tituloInicio">
+      <div class="contenedor">
+        <div class="hero">
+          <div class="hero-contenido">
+            <span class="insignia-hero"><span class="punto"></span>Proyecto de grado · 2026</span>
+            <h1 id="tituloInicio">Descubre el mundo de las <em>funciones cuadráticas</em></h1>
+            <p class="hero-sub">Explora parábolas, domina el vértice, las raíces y el discriminante, y practica con juegos y evaluaciones que te dan retroalimentación al instante.</p>
+            <div class="hero-datos">
+              <span class="dato-hero"><svg class="icono"><use href="#i-escuela"/></svg>I.E. Armando Solano</span>
+              <span class="dato-hero"><svg class="icono"><use href="#i-usuarios"/></svg>Grado 10-1</span>
+              <span class="dato-hero"><svg class="icono"><use href="#i-ubicacion"/></svg>Paipa, Boyacá</span>
+              <span class="dato-hero"><svg class="icono"><use href="#i-calendario"/></svg>2026</span>
+            </div>
+            <div class="hero-acciones">
+              <a href="#explicaciones" class="btn btn-primario btn-grande" data-seccion="explicaciones">Comenzar a aprender <svg class="icono"><use href="#i-flecha"/></svg></a>
+              <a href="#grafica" class="btn btn-claro btn-grande" data-seccion="grafica"><svg class="icono"><use href="#i-grafica"/></svg>Explorar la gráfica</a>
+            </div>
+          </div>
+
+          <div class="hero-figura" aria-hidden="true">
+            <svg viewBox="0 0 520 440">
+              <defs>
+                <linearGradient id="curvaHero" x1="0" y1="1" x2="1" y2="0">
+                  <stop offset="0" stop-color="#4ff0c8"/>
+                  <stop offset=".5" stop-color="#a78bfa"/>
+                  <stop offset="1" stop-color="#ff8fb8"/>
+                </linearGradient>
+                <linearGradient id="tarjetaHero" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="rgba(255,255,255,.18)"/>
+                  <stop offset="1" stop-color="rgba(255,255,255,.06)"/>
+                </linearGradient>
+                <filter id="brilloHero" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="7" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+              <g stroke="rgba(255,255,255,.13)" stroke-width="1">
+                <path d="M40 40h440M40 100h440M40 160h440M40 220h440M40 280h440M40 340h440M40 400h440"/>
+                <path d="M80 30v380M140 30v380M200 30v380M260 30v380M320 30v380M380 30v380M440 30v380"/>
+              </g>
+              <line x1="35" y1="260" x2="490" y2="260" stroke="rgba(230,235,255,.55)" stroke-width="1.5"/>
+              <line x1="260" y1="45" x2="260" y2="405" stroke="rgba(230,235,255,.35)" stroke-width="1.4" stroke-dasharray="5 7"/>
+              <path d="M70 150 Q260 570 450 150" fill="none" stroke="url(#curvaHero)" stroke-width="5" stroke-linecap="round" filter="url(#brilloHero)"/>
+              <circle cx="260" cy="360" r="9" fill="#ff8fb8" stroke="#fff" stroke-width="3"/>
+              <circle cx="130" cy="260" r="6" fill="#4ff0c8" stroke="#fff" stroke-width="2"/>
+              <circle cx="390" cy="260" r="6" fill="#4ff0c8" stroke="#fff" stroke-width="2"/>
+
+              <g font-family="Inter, sans-serif" font-size="13">
+                <rect x="28" y="28" width="204" height="42" rx="13" fill="url(#tarjetaHero)" stroke="rgba(255,255,255,.28)"/>
+                <text x="46" y="55" fill="#f1eeff">f(x) = ax² + bx + c</text>
+
+                <rect x="300" y="370" width="176" height="42" rx="13" fill="url(#tarjetaHero)" stroke="rgba(255,255,255,.28)"/>
+                <text x="318" y="397" fill="#ffe1a3">Δ = b² − 4ac</text>
+
+                <rect x="292" y="330" width="120" height="30" rx="10" fill="rgba(255,143,184,.2)" stroke="rgba(255,143,184,.5)"/>
+                <text x="307" y="350" fill="#ffd3e6" font-weight="700">V(2, −3)</text>
+
+                <rect x="64" y="222" width="70" height="28" rx="9" fill="rgba(79,240,200,.16)" stroke="rgba(79,240,200,.45)"/>
+                <text x="76" y="241" fill="#b7ffef" font-size="11">raíz</text>
+                <rect x="368" y="222" width="70" height="28" rx="9" fill="rgba(79,240,200,.16)" stroke="rgba(79,240,200,.45)"/>
+                <text x="380" y="241" fill="#b7ffef" font-size="11">raíz</text>
+
+                <text x="272" y="88" fill="#c9c2ff" font-size="11" font-weight="700">eje de simetría</text>
+                <text x="270" y="104" fill="#ffffff" font-size="12">x = 2</text>
+
+                <rect x="382" y="28" width="102" height="30" rx="10" fill="rgba(255,209,102,.16)" stroke="rgba(255,209,102,.4)"/>
+                <text x="397" y="48" fill="#ffe1a3" font-size="11" font-weight="700">a &gt; 0 · abre ↑</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <div class="ficha-equipo">
+          <div>
+            <h3>Equipo del proyecto</h3>
+            <div class="integrantes">
+              <span class="integrante"><span class="avatar">CM</span>Carlos Andrés Moreno Chaparro</span>
+              <span class="integrante"><span class="avatar verde">JF</span>Juan David Fonseca López</span>
+              <span class="integrante"><span class="avatar coral">DS</span>David Santiago Sánchez Pedroza</span>
+            </div>
+          </div>
+          <div class="ficha-docente">
+            <span>Docente orientador</span>
+            <strong>Milton Ney Pedroza Soler</strong>
+          </div>
+        </div>
+
+        <div class="subtitulo-bloque">
+          <h3>Todo lo que necesitas para aprender</h3>
+          <p>Contenidos, práctica y evaluación en un solo lugar</p>
+        </div>
+
+        <div class="rejilla rejilla-3">
+          <a href="#explicaciones" class="tarjeta tarjeta-acceso" data-seccion="explicaciones">
+            <span class="icono-cuadro"><svg class="icono"><use href="#i-libro"/></svg></span>
+            <h3>Explicaciones claras</h3>
+            <p>Nueve conceptos esenciales explicados con definiciones, fórmulas, ejemplos y errores frecuentes.</p>
+            <span class="enlace-flecha">Estudiar conceptos <svg class="icono"><use href="#i-flecha"/></svg></span>
+          </a>
+          <a href="#ejemplos" class="tarjeta tarjeta-acceso" data-seccion="ejemplos">
+            <span class="icono-cuadro verde"><svg class="icono"><use href="#i-lista"/></svg></span>
+            <h3>Ejemplos paso a paso</h3>
+            <p>Seis situaciones reales: deporte, áreas, ganancias, costos, puentes y ventas de boletas.</p>
+            <span class="enlace-flecha">Ver soluciones <svg class="icono"><use href="#i-flecha"/></svg></span>
+          </a>
+          <a href="#grafica" class="tarjeta tarjeta-acceso" data-seccion="grafica">
+            <span class="icono-cuadro coral"><svg class="icono"><use href="#i-grafica"/></svg></span>
+            <h3>Gráfica interactiva</h3>
+            <p>Cambia a, b y c y observa cómo se transforma la parábola con todos sus elementos.</p>
+            <span class="enlace-flecha">Experimentar <svg class="icono"><use href="#i-flecha"/></svg></span>
+          </a>
+          <a href="#juegos" class="tarjeta tarjeta-acceso" data-seccion="juegos">
+            <span class="icono-cuadro ambar"><svg class="icono"><use href="#i-dado"/></svg></span>
+            <h3>Diez juegos</h3>
+            <p>Retos rápidos, Sudoku, crucigrama, sopa de letras y desafíos para aprender jugando.</p>
+            <span class="enlace-flecha">Jugar ahora <svg class="icono"><use href="#i-flecha"/></svg></span>
+          </a>
+          <a href="#quiz" class="tarjeta tarjeta-acceso" data-seccion="quiz">
+            <span class="icono-cuadro azul"><svg class="icono"><use href="#i-quiz"/></svg></span>
+            <h3>Quiz de práctica</h3>
+            <p>22 preguntas con niveles fácil, medio y difícil, y retroalimentación inmediata.</p>
+            <span class="enlace-flecha">Practicar <svg class="icono"><use href="#i-flecha"/></svg></span>
+          </a>
+          <a href="#evaluacion" class="tarjeta tarjeta-acceso" data-seccion="evaluacion">
+            <span class="icono-cuadro rosa"><svg class="icono"><use href="#i-medalla"/></svg></span>
+            <h3>Evaluación final</h3>
+            <p>Pon a prueba todo lo aprendido y obtén tu puntaje, recomendaciones y certificado.</p>
+            <span class="enlace-flecha">Evaluarme <svg class="icono"><use href="#i-flecha"/></svg></span>
+          </a>
+        </div>
+
+        <div class="subtitulo-bloque">
+          <h3>Tu ruta de aprendizaje</h3>
+          <p>Cinco momentos para comprender, practicar y demostrar</p>
+        </div>
+        <div class="ruta">
+          <div class="paso-ruta"><h4>Explora</h4><p>Lee los nueve conceptos y reconoce las fórmulas clave.</p></div>
+          <div class="paso-ruta"><h4>Visualiza</h4><p>Mueve a, b y c para ver el efecto en la parábola.</p></div>
+          <div class="paso-ruta"><h4>Resuelve</h4><p>Sigue los ejemplos reales paso a paso.</p></div>
+          <div class="paso-ruta"><h4>Practica</h4><p>Refuerza con los diez juegos interactivos.</p></div>
+          <div class="paso-ruta"><h4>Demuestra</h4><p>Completa el quiz y la evaluación final.</p></div>
+        </div>
+
+        <div class="rejilla rejilla-4" style="margin-top:1.2rem">
+          <div class="estadistica"><span class="icono-cuadro"><svg class="icono"><use href="#i-libro"/></svg></span><strong>9</strong><span>conceptos explicados</span><small>con fórmulas y ejemplos</small></div>
+          <div class="estadistica"><span class="icono-cuadro verde"><svg class="icono"><use href="#i-lista"/></svg></span><strong>6</strong><span>ejemplos resueltos</span><small>en contextos reales</small></div>
+          <div class="estadistica"><span class="icono-cuadro ambar"><svg class="icono"><use href="#i-dado"/></svg></span><strong>10</strong><span>juegos interactivos</span><small>con puntaje y récord</small></div>
+          <div class="estadistica"><span class="icono-cuadro azul"><svg class="icono"><use href="#i-quiz"/></svg></span><strong>44</strong><span>preguntas de práctica</span><small>quiz + evaluación final</small></div>
+        </div>
+
+        <div class="aviso-didactico">
+          <svg class="icono"><use href="#i-bombilla"/></svg>
+          <div><strong>Cómo aprovechar la plataforma.</strong> No necesitas hacer todo de una vez. Empieza por las explicaciones, prueba la gráfica interactiva para «ver» las fórmulas, resuelve los ejemplos y luego diviértete con los juegos. El sistema guarda tu avance automáticamente en este dispositivo, así que puedes continuar después desde la sección <a href="#retroalimentacion" data-seccion="retroalimentacion">Retroalimentación</a>.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXPLICACIONES ================= -->
+    <section class="seccion" id="explicaciones" aria-labelledby="tituloExplicaciones">
+      <div class="contenedor">
+        <div class="cabecera-seccion">
+          <span class="etiqueta"><svg class="icono"><use href="#i-libro"/></svg>Contenidos teóricos</span>
+          <h2 id="tituloExplicaciones">Explicaciones <span class="acento">esenciales</span></h2>
+          <p>Recorre los nueve conceptos de la función cuadrática. Cada uno incluye su definición, las fórmulas que necesitas, un ejemplo breve y los errores más frecuentes para que no caigas en ellos.</p>
+        </div>
+
+        <div class="conceptos">
+          <aside class="indice-conceptos" aria-label="Índice de conceptos">
+            <div class="indice-titulo">Conceptos</div>
+            <button type="button" class="activo" data-concepto="funcion"><span class="numero-concepto"><span>1</span></span><span class="texto-concepto">Función cuadrática</span></button>
+            <button type="button" data-concepto="parabola"><span class="numero-concepto"><span>2</span></span><span class="texto-concepto">La parábola</span></button>
+            <button type="button" data-concepto="vertice"><span class="numero-concepto"><span>3</span></span><span class="texto-concepto">Vértice</span></button>
+            <button type="button" data-concepto="eje"><span class="numero-concepto"><span>4</span></span><span class="texto-concepto">Eje de simetría</span></button>
+            <button type="button" data-concepto="raices"><span class="numero-concepto"><span>5</span></span><span class="texto-concepto">Raíces o ceros</span></button>
+            <button type="button" data-concepto="discriminante"><span class="numero-concepto"><span>6</span></span><span class="texto-concepto">Discriminante</span></button>
+            <button type="button" data-concepto="formula"><span class="numero-concepto"><span>7</span></span><span class="texto-concepto">Fórmula general</span></button>
+            <button type="button" data-concepto="factorizacion"><span class="numero-concepto"><span>8</span></span><span class="texto-concepto">Factorización</span></button>
+            <button type="button" data-concepto="completacion"><span class="numero-concepto"><span>9</span></span><span class="texto-concepto">Completación de cuadrados</span></button>
+          </aside>
+
+          <div class="contenido-conceptos">
+            <!-- 1. Función cuadrática -->
+            <article class="panel-concepto activo" id="concepto-funcion" aria-labelledby="tituloConceptoFuncion">
+              <div class="tarjeta-concepto">
+                <div class="concepto-cabecera">
+                  <span class="icono-cuadro"><svg class="icono"><use href="#i-formula"/></svg></span>
+                  <div><h3 id="tituloConceptoFuncion">1. Función cuadrática</h3><p>La base de todo el tema</p></div>
+                </div>
+                <p class="definicion">Una <strong>función cuadrática</strong> es una función de la forma <strong>f(x) = ax² + bx + c</strong>, donde <em>a</em>, <em>b</em> y <em>c</em> son números reales y <strong>a ≠ 0</strong>. Su dominio es el conjunto de los números reales y su gráfica es una parábola.</p>
+                <div class="formula-caja">
+                  <span class="formula">f(x) = <span class="variable">a</span>x<sup>2</sup> + <span class="variable">b</span>x + <span class="variable">c</span>, &nbsp; <span class="variable">a</span> ≠ 0</span>
+                  <span class="nota-formula">El coeficiente <em>a</em> nunca puede ser cero; si lo fuera, la expresión sería lineal.</span>
+                </div>
+                <ul class="lista-claves">
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span><strong>Grado 2:</strong> la variable x aparece elevada al cuadrado, lo que produce una curva y no una recta.</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span><strong>Coeficiente a:</strong> decide si la parábola abre hacia arriba (a &gt; 0) o hacia abajo (a &lt; 0), y qué tan angosta es.</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span><strong>Coeficiente c:</strong> es el valor de f(0), es decir, el punto donde la gráfica corta el eje y: (0, c).</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span><strong>Dominio:</strong> todos los números reales. El <strong>rango</strong> depende del vértice y del signo de a.</span></li>
+                </ul>
+                <figure class="diagrama">
+                  <svg viewBox="0 0 420 220" role="img" aria-label="Tres parábolas con el mismo vértice y distinto valor de a">
+                    <use href="#d-anchos"/>
+                  </svg>
+                  <figcaption>El valor de <em>a</em> cambia la apertura y el ancho de la parábola.</figcaption>
+                </figure>
+                <div class="ejemplo-mini">
+                  <h4>Ejemplo rápido</h4>
+                  <p>En <span class="formula">f(x) = 2x<sup>2</sup> − 4x + 1</span> se tiene <strong>a = 2, b = −4 y c = 1</strong>. Como a &gt; 0, la parábola abre hacia arriba. Además, f(0) = 1, así que corta el eje y en (0, 1).</p>
+                </div>
+                <div class="error-comun">
+                  <svg class="icono"><use href="#i-alerta"/></svg>
+                  <div><strong>Error frecuente:</strong> confundir la función con la ecuación. La función asigna un valor de y a cada x; la ecuación <em>ax² + bx + c = 0</em> se usa para encontrar las raíces, igualando la función a cero.</div>
+                </div>
+                <div class="navegacion-concepto">
+                  <span></span>
+                  <button type="button" class="btn btn-secundario" data-siguiente-concepto="parabola">Siguiente: la parábola <svg class="icono"><use href="#i-flecha"/></svg></button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2. Parábola -->
+            <article class="panel-concepto" id="concepto-parabola" aria-labelledby="tituloConceptoParabola">
+              <div class="tarjeta-concepto">
+                <div class="concepto-cabecera">
+                  <span class="icono-cuadro coral"><svg class="icono"><use href="#i-grafica"/></svg></span>
+                  <div><h3 id="tituloConceptoParabola">2. La parábola</h3><p>La forma visual de la función cuadrática</p></div>
+                </div>
+                <p class="definicion">La <strong>parábola</strong> es la curva simétrica con forma de «U» (o de «U» invertida) que representa gráficamente toda función cuadrática. Está formada por todos los puntos (x, f(x)) que cumplen la ecuación.</p>
+                <ul class="lista-claves">
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>Si <strong>a &gt; 0</strong> la parábola abre hacia arriba y tiene un punto mínimo; si <strong>a &lt; 0</strong> abre hacia abajo y tiene un punto máximo.</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>Cuanto <strong>mayor es |a|</strong>, más angosta es la parábola; cuanto menor es |a|, más amplia.</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>Es <strong>simétrica</strong> respecto a una recta vertical llamada eje de simetría, que pasa por el vértice.</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>Puede cortar el eje x en <strong>dos, un o ningún punto</strong>; siempre corta el eje y en (0, c).</span></li>
+                </ul>
+                <figure class="diagrama">
+                  <svg viewBox="0 0 420 240" role="img" aria-label="Parábola que abre hacia arriba con vértice, eje de simetría y dos raíces">
+                    <use href="#d-parabola"/>
+                  </svg>
+                  <figcaption>Elementos de una parábola: vértice, eje de simetría y raíces.</figcaption>
+                </figure>
+                <div class="ejemplo-mini">
+                  <h4>Ejemplo rápido</h4>
+                  <p><span class="formula">f(x) = x<sup>2</sup></span> abre hacia arriba con vértice en (0, 0). En cambio, <span class="formula">g(x) = −x<sup>2</sup></span> abre hacia abajo con el mismo vértice. Ambas pasan por (1, 1) y (−1, 1) en el primer caso, y por (1, −1) y (−1, −1) en el segundo.</p>
+                </div>
+                <div class="error-comun">
+                  <svg class="icono"><use href="#i-alerta"/></svg>
+                  <div><strong>Error frecuente:</strong> pensar que todas las parábolas tienen la misma forma. El signo y el tamaño de <em>a</em> cambian por completo la apertura y el ancho.</div>
+                </div>
+                <div class="navegacion-concepto">
+                  <button type="button" class="btn btn-secundario" data-anterior-concepto="funcion"><svg class="icono"><use href="#i-flecha-izq"/></svg> Anterior</button>
+                  <button type="button" class="btn btn-secundario" data-siguiente-concepto="vertice">Siguiente: el vértice <svg class="icono"><use href="#i-flecha"/></svg></button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3. Vértice -->
+            <article class="panel-concepto" id="concepto-vertice" aria-labelledby="tituloConceptoVertice">
+              <div class="tarjeta-concepto">
+                <div class="concepto-cabecera">
+                  <span class="icono-cuadro ambar"><svg class="icono"><use href="#i-diana"/></svg></span>
+                  <div><h3 id="tituloConceptoVertice">3. El vértice</h3><p>El punto más alto o más bajo</p></div>
+                </div>
+                <p class="definicion">El <strong>vértice</strong> es el punto donde la parábola alcanza su valor mínimo (si a &gt; 0) o su valor máximo (si a &lt; 0). Sus coordenadas se escriben <strong>V(h, k)</strong> y son la clave para conocer el rango de la función.</p>
+                <div class="formula-caja">
+                  <span class="formula">h = −<span class="frac"><span class="num">b</span><span class="den">2a</span></span>, &nbsp; k = f(h) = <span class="frac"><span class="num">4ac − b<sup>2</sup></span><span class="den">4a</span></span></span>
+                  <span class="nota-formula">V(h, k) = (−b/2a, f(−b/2a)). También puedes calcular k evaluando la función en h.</span>
+                </div>
+                <ul class="lista-claves">
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span><strong>a &gt; 0:</strong> el vértice es el punto mínimo y el rango es <em>[k, +∞)</em>.</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span><strong>a &lt; 0:</strong> el vértice es el punto máximo y el rango es <em>(−∞, k]</em>.</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>La recta vertical <strong>x = h</strong> es el eje de simetría.</span></li>
+                </ul>
+                <figure class="diagrama">
+                  <svg viewBox="0 0 420 240" role="img" aria-label="Vértice de una parábola marcado en el punto más bajo">
+                    <use href="#d-parabola"/>
+                  </svg>
+                  <figcaption>El vértice V(h, k) es el punto de giro de la parábola.</figcaption>
+                </figure>
+                <div class="ejemplo-mini">
+                  <h4>Ejemplo rápido</h4>
+                  <p>Para <span class="formula">f(x) = x<sup>2</sup> − 6x + 5</span>: <strong>h = −(−6)/(2·1) = 3</strong> y <strong>k = f(3) = 9 − 18 + 5 = −4</strong>. El vértice es <strong>V(3, −4)</strong> y, como a &gt; 0, es un mínimo.</p>
+                </div>
+                <div class="error-comun">
+                  <svg class="icono"><use href="#i-alerta"/></svg>
+                  <div><strong>Error frecuente:</strong> escribir la forma vértice con el signo cambiado. <em>f(x) = a(x − h)² + k</em> usa <strong>(x − h)</strong>: si h = 3, se escribe <em>(x − 3)²</em>, no <em>(x + 3)²</em>.</div>
+                </div>
+                <div class="navegacion-concepto">
+                  <button type="button" class="btn btn-secundario" data-anterior-concepto="parabola"><svg class="icono"><use href="#i-flecha-izq"/></svg> Anterior</button>
+                  <button type="button" class="btn btn-secundario" data-siguiente-concepto="eje">Siguiente: eje de simetría <svg class="icono"><use href="#i-flecha"/></svg></button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 4. Eje de simetría -->
+            <article class="panel-concepto" id="concepto-eje" aria-labelledby="tituloConceptoEje">
+              <div class="tarjeta-concepto">
+                <div class="concepto-cabecera">
+                  <span class="icono-cuadro"><svg class="icono"><use href="#i-rombo"/></svg></span>
+                  <div><h3 id="tituloConceptoEje">4. Eje de simetría</h3><p>La recta que divide la parábola en dos mitades iguales</p></div>
+                </div>
+                <p class="definicion">El <strong>eje de simetría</strong> es la recta vertical que pasa por el vértice y divide la parábola en dos mitades que son reflejo una de la otra. Su ecuación es <strong>x = −b/(2a)</strong>.</p>
+                <div class="formula-caja">
+                  <span class="formula">x = −<span class="frac"><span class="num">b</span><span class="den">2a</span></span></span>
+                  <span class="nota-formula">Es la misma coordenada h del vértice: el eje siempre pasa por V(h, k).</span>
+                </div>
+                <ul class="lista-claves">
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>Dos puntos con la misma altura están a la <strong>misma distancia</strong> del eje: f(h − d) = f(h + d).</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>Si la parábola tiene dos raíces, el eje está <strong>exactamente a la mitad</strong> entre ellas.</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>Conocer el eje y el vértice permite <strong>graficar</strong> la parábola con pocos puntos.</span></li>
+                </ul>
+                <figure class="diagrama">
+                  <svg viewBox="0 0 420 240" role="img" aria-label="Eje de simetría vertical que pasa por el vértice">
+                    <use href="#d-parabola"/>
+                  </svg>
+                  <figcaption>El eje de simetría es la recta punteada x = h.</figcaption>
+                </figure>
+                <div class="ejemplo-mini">
+                  <h4>Ejemplo rápido</h4>
+                  <p>Para <span class="formula">f(x) = 2x<sup>2</sup> + 8x + 1</span>: <strong>x = −8/(2·2) = −2</strong>. Así, f(−3) = 18 − 24 + 1 = −5 y f(−1) = 2 − 8 + 1 = −5: los dos puntos están a la misma altura, uno a cada lado del eje x = −2.</p>
+                </div>
+                <div class="error-comun">
+                  <svg class="icono"><use href="#i-alerta"/></svg>
+                  <div><strong>Error frecuente:</strong> olvidar el signo negativo de la fórmula y usar <em>x = b/2a</em>. Con b = 8, el eje es x = −2, no x = 2.</div>
+                </div>
+                <div class="navegacion-concepto">
+                  <button type="button" class="btn btn-secundario" data-anterior-concepto="vertice"><svg class="icono"><use href="#i-flecha-izq"/></svg> Anterior</button>
+                  <button type="button" class="btn btn-secundario" data-siguiente-concepto="raices">Siguiente: raíces <svg class="icono"><use href="#i-flecha"/></svg></button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 5. Raíces -->
+            <article class="panel-concepto" id="concepto-raices" aria-labelledby="tituloConceptoRaices">
+              <div class="tarjeta-concepto">
+                <div class="concepto-cabecera">
+                  <span class="icono-cuadro verde"><svg class="icono"><use href="#i-diana"/></svg></span>
+                  <div><h3 id="tituloConceptoRaices">5. Raíces o ceros</h3><p>Los puntos donde la parábola corta el eje x</p></div>
+                </div>
+                <p class="definicion">Las <strong>raíces</strong> (también llamadas <strong>ceros</strong>) de una función cuadrática son los valores de x para los que <strong>f(x) = 0</strong>. Gráficamente corresponden a los puntos donde la parábola corta el eje x.</p>
+                <div class="formula-caja">
+                  <span class="formula">f(x) = 0 &nbsp;⟺&nbsp; ax<sup>2</sup> + bx + c = 0</span>
+                  <span class="nota-formula">Se pueden hallar con la fórmula general, factorizando o completando cuadrados.</span>
+                </div>
+                <ul class="lista-claves">
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>Una función cuadrática puede tener <strong>dos, una o ninguna</strong> raíz real.</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>Si el discriminante es positivo hay dos raíces; si es cero, una raíz doble; si es negativo, no hay raíces reales.</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>Si factorizas, cada factor igualado a cero da una raíz: <em>(x − r₁)(x − r₂) = 0</em>.</span></li>
+                </ul>
+                <figure class="diagrama">
+                  <svg viewBox="0 0 420 240" role="img" aria-label="Parábola con dos raíces marcadas sobre el eje x">
+                    <use href="#d-parabola"/>
+                  </svg>
+                  <figcaption>Las raíces son los cortes de la parábola con el eje x.</figcaption>
+                </figure>
+                <div class="ejemplo-mini">
+                  <h4>Ejemplo rápido</h4>
+                  <p>Para <span class="formula">f(x) = x<sup>2</sup> − 5x + 6</span>, igualamos a cero: <strong>(x − 2)(x − 3) = 0</strong>, de donde <strong>x = 2</strong> y <strong>x = 3</strong>. La parábola corta el eje x en (2, 0) y (3, 0).</p>
+                </div>
+                <div class="error-comun">
+                  <svg class="icono"><use href="#i-alerta"/></svg>
+                  <div><strong>Error frecuente:</strong> creer que si no hay raíces reales la función «no existe». La parábola sí existe; simplemente no corta el eje x (sus raíces serían números complejos).</div>
+                </div>
+                <div class="navegacion-concepto">
+                  <button type="button" class="btn btn-secundario" data-anterior-concepto="eje"><svg class="icono"><use href="#i-flecha-izq"/></svg> Anterior</button>
+                  <button type="button" class="btn btn-secundario" data-siguiente-concepto="discriminante">Siguiente: discriminante <svg class="icono"><use href="#i-flecha"/></svg></button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 6. Discriminante -->
+            <article class="panel-concepto" id="concepto-discriminante" aria-labelledby="tituloConceptoDiscriminante">
+              <div class="tarjeta-concepto">
+                <div class="concepto-cabecera">
+                  <span class="icono-cuadro coral"><svg class="icono"><use href="#i-info"/></svg></span>
+                  <div><h3 id="tituloConceptoDiscriminante">6. El discriminante</h3><p>El número que anuncia cuántas raíces hay</p></div>
+                </div>
+                <p class="definicion">El <strong>discriminante</strong> es la expresión <strong>Δ = b² − 4ac</strong>. Su valor, antes de resolver la ecuación, indica cuántas raíces reales tiene una función cuadrática y cómo se ve la parábola respecto al eje x.</p>
+                <div class="formula-caja">
+                  <span class="formula">Δ = b<sup>2</sup> − 4ac</span>
+                  <span class="nota-formula">Δ se lee «delta» y aparece dentro de la raíz cuadrada de la fórmula general.</span>
+                </div>
+                <ul class="lista-claves">
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span><strong>Δ &gt; 0:</strong> dos raíces reales distintas; la parábola corta el eje x en dos puntos.</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span><strong>Δ = 0:</strong> una raíz real doble; la parábola es tangente al eje x.</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span><strong>Δ &lt; 0:</strong> ninguna raíz real; la parábola no corta el eje x.</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>Si Δ es un cuadrado perfecto y a, b, c son enteros, la expresión suele factorizar con números enteros.</span></li>
+                </ul>
+                <figure class="diagrama">
+                  <svg viewBox="0 0 420 170" role="img" aria-label="Tres casos del discriminante: mayor que cero, igual a cero y menor que cero">
+                    <use href="#d-discriminante"/>
+                  </svg>
+                  <figcaption>El signo del discriminante se ve directamente en la gráfica.</figcaption>
+                </figure>
+                <div class="ejemplo-mini">
+                  <h4>Ejemplo rápido</h4>
+                  <p>En <span class="formula">f(x) = x<sup>2</sup> − 4x + 4</span>: <strong>Δ = (−4)² − 4·1·4 = 16 − 16 = 0</strong>. Hay una sola raíz doble, x = 2, y la parábola toca el eje x en (2, 0).</p>
+                </div>
+                <div class="error-comun">
+                  <svg class="icono"><use href="#i-alerta"/></svg>
+                  <div><strong>Error frecuente:</strong> equivocarse con los signos al calcular Δ. Recuerda que b² siempre es positivo y que −4ac cambia de signo si a o c son negativos.</div>
+                </div>
+                <div class="navegacion-concepto">
+                  <button type="button" class="btn btn-secundario" data-anterior-concepto="raices"><svg class="icono"><use href="#i-flecha-izq"/></svg> Anterior</button>
+                  <button type="button" class="btn btn-secundario" data-siguiente-concepto="formula">Siguiente: fórmula general <svg class="icono"><use href="#i-flecha"/></svg></button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 7. Fórmula general -->
+            <article class="panel-concepto" id="concepto-formula" aria-labelledby="tituloConceptoFormula">
+              <div class="tarjeta-concepto">
+                <div class="concepto-cabecera">
+                  <span class="icono-cuadro azul"><svg class="icono"><use href="#i-formula"/></svg></span>
+                  <div><h3 id="tituloConceptoFormula">7. Fórmula general</h3><p>El método que siempre funciona</p></div>
+                </div>
+                <p class="definicion">La <strong>fórmula general</strong> resuelve cualquier ecuación cuadrática <strong>ax² + bx + c = 0</strong> con a ≠ 0. Primero se calcula el discriminante y luego se sustituye en la fórmula.</p>
+                <div class="formula-caja">
+                  <span class="formula">x = <span class="frac"><span class="num">−b ± √(b<sup>2</sup> − 4ac)</span><span class="den">2a</span></span></span>
+                  <span class="nota-formula">El símbolo ± significa que se calculan dos soluciones: una sumando y otra restando la raíz.</span>
+                </div>
+                <ul class="lista-claves">
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>Identifica correctamente <strong>a, b y c</strong> con sus signos antes de reemplazar.</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>Calcula primero <strong>Δ = b² − 4ac</strong>: si es negativo, no hay soluciones reales y puedes detenerte.</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>El denominador <strong>2a</strong> divide a toda la expresión, no solo a la raíz.</span></li>
+                </ul>
+                <div class="ejemplo-mini">
+                  <h4>Ejemplo rápido</h4>
+                  <p>Resuelve <span class="formula">2x<sup>2</sup> − 7x + 3 = 0</span>:</p>
+                  <p><strong>a = 2, b = −7, c = 3</strong>; <strong>Δ = 49 − 24 = 25</strong>; <strong>x = (7 ± 5)/4</strong>. Entonces x₁ = 12/4 = <strong>3</strong> y x₂ = 2/4 = <strong>1/2</strong>.</p>
+                </div>
+                <div class="error-comun">
+                  <svg class="icono"><use href="#i-alerta"/></svg>
+                  <div><strong>Error frecuente:</strong> dividir solo una parte entre 2a o perder el signo negativo de −b. Escribe la sustitución completa entre paréntesis antes de simplificar.</div>
+                </div>
+                <div class="navegacion-concepto">
+                  <button type="button" class="btn btn-secundario" data-anterior-concepto="discriminante"><svg class="icono"><use href="#i-flecha-izq"/></svg> Anterior</button>
+                  <button type="button" class="btn btn-secundario" data-siguiente-concepto="factorizacion">Siguiente: factorización <svg class="icono"><use href="#i-flecha"/></svg></button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 8. Factorización -->
+            <article class="panel-concepto" id="concepto-factorizacion" aria-labelledby="tituloConceptoFactorizacion">
+              <div class="tarjeta-concepto">
+                <div class="concepto-cabecera">
+                  <span class="icono-cuadro ambar"><svg class="icono"><use href="#i-rombo"/></svg></span>
+                  <div><h3 id="tituloConceptoFactorizacion">8. Factorización</h3><p>Escribir la expresión como producto</p></div>
+                </div>
+                <p class="definicion">Factorizar es escribir <strong>ax² + bx + c</strong> como el producto de dos factores lineales. Si <strong>(x − r₁)(x − r₂) = 0</strong>, entonces las raíces son <strong>x = r₁</strong> y <strong>x = r₂</strong>.</p>
+                <div class="formula-caja">
+                  <span class="formula">x<sup>2</sup> + (p + q)x + pq = (x + p)(x + q)</span>
+                  <span class="nota-formula">Para a = 1, busca dos números p y q que sumen b y multipliquen c.</span>
+                </div>
+                <ul class="lista-claves">
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>Si <strong>a = 1</strong>: dos números que <strong>sumen b</strong> y <strong>multipliquen c</strong>.</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>Si <strong>a ≠ 1</strong>: usa agrupación (buscando dos números que multipliquen ac y sumen b) o la fórmula general.</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>No todas las expresiones factorizan con enteros; si Δ no es un cuadrado perfecto, conviene usar la fórmula general.</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>Comprueba multiplicando los factores: deben recuperar la expresión original.</span></li>
+                </ul>
+                <div class="ejemplo-mini">
+                  <h4>Ejemplo rápido</h4>
+                  <p><span class="formula">x<sup>2</sup> + 5x + 6</span>: buscamos dos números que sumen 5 y multipliquen 6: son <strong>2 y 3</strong>. Entonces <strong>(x + 2)(x + 3)</strong> y las raíces son x = −2 y x = −3.</p>
+                  <p>Para <span class="formula">2x<sup>2</sup> − 7x + 3</span>: dos números que multipliquen 2·3 = 6 y sumen −7 son <strong>−6 y −1</strong>. Se reescribe como 2x² − 6x − x + 3 = 2x(x − 3) − (x − 3) = <strong>(2x − 1)(x − 3)</strong>.</p>
+                </div>
+                <div class="error-comun">
+                  <svg class="icono"><use href="#i-alerta"/></svg>
+                  <div><strong>Error frecuente:</strong> intercambiar las condiciones: los números deben sumar <em>b</em> y multiplicar <em>c</em> (cuando a = 1), no al contrario.</div>
+                </div>
+                <div class="navegacion-concepto">
+                  <button type="button" class="btn btn-secundario" data-anterior-concepto="formula"><svg class="icono"><use href="#i-flecha-izq"/></svg> Anterior</button>
+                  <button type="button" class="btn btn-secundario" data-siguiente-concepto="completacion">Siguiente: completación <svg class="icono"><use href="#i-flecha"/></svg></button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 9. Completación -->
+            <article class="panel-concepto" id="concepto-completacion" aria-labelledby="tituloConceptoCompletacion">
+              <div class="tarjeta-concepto">
+                <div class="concepto-cabecera">
+                  <span class="icono-cuadro verde"><svg class="icono"><use href="#i-formula"/></svg></span>
+                  <div><h3 id="tituloConceptoCompletacion">9. Completación de cuadrados</h3><p>Transformar para descubrir el vértice</p></div>
+                </div>
+                <p class="definicion">Completar el cuadrado consiste en reescribir la función en la <strong>forma vértice</strong> <strong>f(x) = a(x − h)² + k</strong>. Así se identifican directamente el vértice (h, k), el eje x = h y el valor máximo o mínimo.</p>
+                <div class="formula-caja">
+                  <span class="formula">ax<sup>2</sup> + bx + c = a(x − h)<sup>2</sup> + k</span>
+                  <span class="nota-formula">Con h = −b/2a y k = c − b²/4a. También: x² + bx = (x + b/2)² − (b/2)².</span>
+                </div>
+                <ul class="lista-claves">
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>Toma la mitad del coeficiente de x, elévala al cuadrado, súmala y réstala para no cambiar la expresión.</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>Si a ≠ 1, primero saca factor común <strong>a</strong> en los términos con x.</span></li>
+                  <li><svg class="icono"><use href="#i-check-circulo"/></svg><span>La forma vértice muestra el <strong>mínimo</strong> (a &gt; 0) o el <strong>máximo</strong> (a &lt; 0) sin necesidad de graficar.</span></li>
+                </ul>
+                <div class="ejemplo-mini">
+                  <h4>Ejemplo rápido</h4>
+                  <p><span class="formula">x<sup>2</sup> − 6x + 5</span>: la mitad de −6 es −3, y (−3)² = 9. Sumamos y restamos 9: <strong>x² − 6x + 9 − 9 + 5 = (x − 3)² − 4</strong>. El vértice es <strong>V(3, −4)</strong>.</p>
+                  <p><span class="formula">2x<sup>2</sup> − 8x + 5</span>: factorizamos 2: <strong>2(x² − 4x) + 5 = 2[(x − 2)² − 4] + 5 = 2(x − 2)² − 3</strong>. Vértice <strong>V(2, −3)</strong>.</p>
+                </div>
+                <div class="error-comun">
+                  <svg class="icono"><use href="#i-alerta"/></svg>
+                  <div><strong>Error frecuente:</strong> sumar (b/2)² sin restarlo, o no multiplicar por <em>a</em> al distribuir el factor común. Cada cambio debe compensarse para conservar la igualdad.</div>
+                </div>
+                <div class="navegacion-concepto">
+                  <button type="button" class="btn btn-secundario" data-anterior-concepto="factorizacion"><svg class="icono"><use href="#i-flecha-izq"/></svg> Anterior</button>
+                  <button type="button" class="btn btn-primario" data-seccion="ejemplos">Ir a ejemplos resueltos <svg class="icono"><use href="#i-flecha"/></svg></button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EJEMPLOS RESUELTOS ================= -->
+    <section class="seccion" id="ejemplos" aria-labelledby="tituloEjemplos">
+      <div class="contenedor">
+        <div class="cabecera-seccion">
+          <span class="etiqueta"><svg class="icono"><use href="#i-lista"/></svg>Ejemplos resueltos</span>
+          <h2 id="tituloEjemplos">De la fórmula a la <span class="acento">vida real</span></h2>
+          <p>Seis situaciones cotidianas resueltas paso a paso. En cada tarjeta encontrarás el problema, su gráfica y la solución completa con la interpretación del resultado.</p>
+        </div>
+
+        <div class="rejilla-ejemplos">
+          <!-- Ejemplo 1 -->
+          <article class="tarjeta-ejemplo">
+            <div class="ejemplo-cabecera">
+              <span class="icono-cuadro coral"><svg class="icono"><use href="#i-rayo"/></svg></span>
+              <div><h3>1. El lanzamiento de una pelota</h3><p class="contexto">Contexto: deporte y física</p></div>
+            </div>
+            <div class="ejemplo-cuerpo">
+              <div class="enunciado-caja">
+                <p>Un jugador lanza una pelota. Su altura en metros, después de <em>t</em> segundos, está dada por:</p>
+                <span class="formula">h(t) = −5t<sup>2</sup> + 20t + 1,5</span>
+                <p style="margin-top:.5rem">¿Cuándo alcanza la altura máxima y cuál es esa altura? ¿En qué momento cae al suelo?</p>
+              </div>
+              <div class="mini-grafica-caja"><canvas class="mini-grafica" data-a="-5" data-b="20" data-c="1.5" data-xmin="-0.6" data-xmax="5" aria-label="Gráfica de la altura de la pelota en función del tiempo"></canvas></div>
+              <details class="detalle-solucion">
+                <summary><svg class="icono"><use href="#i-flecha"/></svg></summary>
+                <div class="pasos">
+                  <div class="paso"><strong>Identifica los coeficientes:</strong> a = −5, b = 20, c = 1,5. Como a &lt; 0, la parábola abre hacia abajo y el vértice será un máximo.</div>
+                  <div class="paso"><strong>Tiempo del vértice:</strong><span class="formula">t = −b/(2a) = −20/(2·(−5)) = 2 s</span></div>
+                  <div class="paso"><strong>Altura máxima:</strong><span class="formula">h(2) = −5(2)² + 20(2) + 1,5 = −20 + 40 + 1,5 = 21,5 m</span></div>
+                  <div class="paso"><strong>¿Cuándo cae al suelo?</strong> Se resuelve h(t) = 0:<span class="formula">−5t² + 20t + 1,5 = 0 &nbsp;⟹&nbsp; 5t² − 20t − 1,5 = 0</span><span class="formula">Δ = (−20)² − 4(5)(−1,5) = 400 + 30 = 430</span><span class="formula">t = (20 ± √430)/10 ≈ (20 ± 20,74)/10</span></div>
+                  <div class="paso"><strong>Interpreta las soluciones:</strong> t ≈ 4,07 s y t ≈ −0,07 s. El tiempo negativo no tiene sentido físico, así que la pelota cae al suelo a los <strong>4,07 segundos</strong>.</div>
+                </div>
+                <div class="respuesta-final">
+                  <svg class="icono"><use href="#i-check-circulo"/></svg>
+                  <div><strong>Respuesta:</strong> la pelota alcanza su altura máxima de <strong>21,5 m a los 2 s</strong> y vuelve al suelo aproximadamente a los <strong>4,07 s</strong>.</div>
+                </div>
+                <p class="interpretacion"><strong>Interpretación:</strong> el eje de simetría t = 2 s divide el vuelo en dos partes; la pelota tarda lo mismo en subir que en bajar desde la altura máxima hasta el suelo.</p>
+              </details>
+            </div>
+          </article>
+
+          <!-- Ejemplo 2 -->
+          <article class="tarjeta-ejemplo">
+            <div class="ejemplo-cabecera">
+              <span class="icono-cuadro verde"><svg class="icono"><use href="#i-rombo"/></svg></span>
+              <div><h3>2. El jardín con 40 m de cerca</h3><p class="contexto">Contexto: geometría y optimización</p></div>
+            </div>
+            <div class="ejemplo-cuerpo">
+              <div class="enunciado-caja">
+                <p>Con 40 m de cerca se quiere delimitar un jardín rectangular aprovechando una pared como uno de sus lados. Si <em>x</em> es el lado perpendicular a la pared, el área es:</p>
+                <span class="formula">A(x) = x(40 − 2x) = −2x<sup>2</sup> + 40x</span>
+                <p style="margin-top:.5rem">¿Qué dimensiones dan el área máxima?</p>
+              </div>
+              <div class="mini-grafica-caja"><canvas class="mini-grafica" data-a="-2" data-b="40" data-c="0" data-xmin="-1" data-xmax="21" aria-label="Gráfica del área del jardín en función del lado x"></canvas></div>
+              <details class="detalle-solucion">
+                <summary><svg class="icono"><use href="#i-flecha"/></svg></summary>
+                <div class="pasos">
+                  <div class="paso"><strong>Plantea la función:</strong> la cerca cubre dos lados de longitud x y un lado de longitud 40 − 2x. El área es A(x) = x(40 − 2x) = −2x² + 40x.</div>
+                  <div class="paso"><strong>Identifica:</strong> a = −2, b = 40, c = 0. Abre hacia abajo, así que el vértice es un máximo.</div>
+                  <div class="paso"><strong>Lado x del vértice:</strong><span class="formula">x = −40/(2·(−2)) = 10 m</span></div>
+                  <div class="paso"><strong>Área máxima:</strong><span class="formula">A(10) = −2(10)² + 40(10) = −200 + 400 = 200 m²</span></div>
+                  <div class="paso"><strong>El otro lado:</strong> 40 − 2(10) = <strong>20 m</strong>. El jardín mide 10 m × 20 m.</div>
+                  <div class="paso"><strong>Comprueba el perímetro:</strong> 2(10) + 20 = 40 m, que es exactamente la cerca disponible.</div>
+                </div>
+                <div class="respuesta-final">
+                  <svg class="icono"><use href="#i-check-circulo"/></svg>
+                  <div><strong>Respuesta:</strong> las dimensiones óptimas son <strong>10 m y 20 m</strong>, con un área máxima de <strong>200 m²</strong>.</div>
+                </div>
+                <p class="interpretacion"><strong>Interpretación:</strong> no conviene un jardín cuadrado: al usar la pared como un lado, el rectángulo óptimo es el doble de largo que de ancho.</p>
+              </details>
+            </div>
+          </article>
+
+          <!-- Ejemplo 3 -->
+          <article class="tarjeta-ejemplo">
+            <div class="ejemplo-cabecera">
+              <span class="icono-cuadro ambar"><svg class="icono"><use href="#i-barras"/></svg></span>
+              <div><h3>3. Las ganancias de una panadería</h3><p class="contexto">Contexto: economía</p></div>
+            </div>
+            <div class="ejemplo-cuerpo">
+              <div class="enunciado-caja">
+                <p>Una panadería vende tortas a <em>x</em> miles de pesos. Su ganancia mensual, en miles de pesos, es:</p>
+                <span class="formula">G(x) = −2x<sup>2</sup> + 120x − 1000</span>
+                <p style="margin-top:.5rem">¿Qué precio maximiza la ganancia? ¿A qué precios la ganancia es cero?</p>
+              </div>
+              <div class="mini-grafica-caja"><canvas class="mini-grafica" data-a="-2" data-b="120" data-c="-1000" data-xmin="-2" data-xmax="62" aria-label="Gráfica de la ganancia de la panadería según el precio"></canvas></div>
+              <details class="detalle-solucion">
+                <summary><svg class="icono"><use href="#i-flecha"/></svg></summary>
+                <div class="pasos">
+                  <div class="paso"><strong>Identifica:</strong> a = −2, b = 120, c = −1000. Como a &lt; 0, la ganancia tiene un máximo.</div>
+                  <div class="paso"><strong>Precio óptimo:</strong><span class="formula">x = −120/(2·(−2)) = 30</span> Es decir, <strong>30 mil pesos</strong> por torta.</div>
+                  <div class="paso"><strong>Ganancia máxima:</strong><span class="formula">G(30) = −2(30)² + 120(30) − 1000 = −1800 + 3600 − 1000 = 800</span> Es decir, <strong>800 000 pesos</strong> mensuales.</div>
+                  <div class="paso"><strong>Ganancia cero:</strong><span class="formula">−2x² + 120x − 1000 = 0</span>Multiplicando por −1 y dividiendo entre 2: x² − 60x + 500 = 0, que factoriza como (x − 10)(x − 50) = 0.</div>
+                  <div class="paso"><strong>Raíces:</strong> x = 10 y x = 50. Para la ecuación simplificada, Δ = 3600 − 2000 = 1600, un cuadrado perfecto; por eso factoriza con enteros.</div>
+                  <div class="paso"><strong>Interpreta:</strong> vender a 10 mil o a 50 mil pesos deja ganancia cero; entre esos precios hay ganancia positiva, y el mejor punto es 30 mil.</div>
+                </div>
+                <div class="respuesta-final">
+                  <svg class="icono"><use href="#i-check-circulo"/></svg>
+                  <div><strong>Respuesta:</strong> el precio que maximiza la ganancia es <strong>30 000 pesos</strong>, con una ganancia de <strong>800 000 pesos</strong>. La ganancia es cero a <strong>10 000 y 50 000 pesos</strong>.</div>
+                </div>
+                <p class="interpretacion"><strong>Interpretación:</strong> el vértice representa el mejor escenario y las raíces separan las zonas de pérdida de la zona de ganancia.</p>
+              </details>
+            </div>
+          </article>
+
+          <!-- Ejemplo 4 -->
+          <article class="tarjeta-ejemplo">
+            <div class="ejemplo-cabecera">
+              <span class="icono-cuadro azul"><svg class="icono"><use href="#i-carpeta"/></svg></span>
+              <div><h3>4. Los costos de producción</h3><p class="contexto">Contexto: empresa y costos</p></div>
+            </div>
+            <div class="ejemplo-cuerpo">
+              <div class="enunciado-caja">
+                <p>El costo diario de producir <em>x</em> artículos, en miles de pesos, es:</p>
+                <span class="formula">C(x) = x<sup>2</sup> − 10x + 40</span>
+                <p style="margin-top:.5rem">¿Cuántos artículos minimizan el costo y cuál es ese costo mínimo? ¿Puede el costo llegar a cero?</p>
+              </div>
+              <div class="mini-grafica-caja"><canvas class="mini-grafica" data-a="1" data-b="-10" data-c="40" data-xmin="-2" data-xmax="12" aria-label="Gráfica del costo de producción en función de los artículos"></canvas></div>
+              <details class="detalle-solucion">
+                <summary><svg class="icono"><use href="#i-flecha"/></svg></summary>
+                <div class="pasos">
+                  <div class="paso"><strong>Identifica:</strong> a = 1, b = −10, c = 40. Como a &gt; 0, la parábola abre hacia arriba y el vértice es un mínimo.</div>
+                  <div class="paso"><strong>Artículos del vértice:</strong><span class="formula">x = −(−10)/(2·1) = 5</span></div>
+                  <div class="paso"><strong>Costo mínimo:</strong><span class="formula">C(5) = 5² − 10(5) + 40 = 25 − 50 + 40 = 15</span> Es decir, <strong>15 000 pesos</strong> al día.</div>
+                  <div class="paso"><strong>¿Puede el costo ser cero?</strong> Calculamos el discriminante:<span class="formula">Δ = (−10)² − 4(1)(40) = 100 − 160 = −60</span></div>
+                  <div class="paso"><strong>Interpreta el discriminante:</strong> como Δ &lt; 0, no hay raíces reales: la parábola nunca corta el eje x, así que el costo siempre es positivo.</div>
+                  <div class="paso"><strong>Completa el cuadrado para comprobarlo:</strong> x² − 10x + 40 = (x − 5)² + 15, que siempre es mayor o igual que 15.</div>
+                </div>
+                <div class="respuesta-final">
+                  <svg class="icono"><use href="#i-check-circulo"/></svg>
+                  <div><strong>Respuesta:</strong> producir <strong>5 artículos</strong> minimiza el costo en <strong>15 000 pesos</strong>. El costo no puede ser cero porque Δ &lt; 0.</div>
+                </div>
+                <p class="interpretacion"><strong>Interpretación:</strong> el mínimo representa el costo fijo inevitable de la producción; el discriminante negativo confirma que la gráfica está completamente por encima del eje x.</p>
+              </details>
+            </div>
+          </article>
+
+          <!-- Ejemplo 5 -->
+          <article class="tarjeta-ejemplo">
+            <div class="ejemplo-cabecera">
+              <span class="icono-cuadro rosa"><svg class="icono"><use href="#i-grafica"/></svg></span>
+              <div><h3>5. El arco de un puente</h3><p class="contexto">Contexto: arquitectura e ingeniería</p></div>
+            </div>
+            <div class="ejemplo-cuerpo">
+              <div class="enunciado-caja">
+                <p>Un puente tiene un arco parabólico modelado por:</p>
+                <span class="formula">y = −0,05x<sup>2</sup> + 1,6x</span>
+                <p style="margin-top:.5rem">donde <em>x</em> e <em>y</em> se miden en metros, con x desde un extremo del arco. ¿Cuál es la altura máxima y qué ancho (luz) tiene el arco?</p>
+              </div>
+              <div class="mini-grafica-caja"><canvas class="mini-grafica" data-a="-0.05" data-b="1.6" data-c="0" data-xmin="-2" data-xmax="34" aria-label="Gráfica del arco parabólico del puente"></canvas></div>
+              <details class="detalle-solucion">
+                <summary><svg class="icono"><use href="#i-flecha"/></svg></summary>
+                <div class="pasos">
+                  <div class="paso"><strong>Identifica:</strong> a = −0,05, b = 1,6, c = 0. Abre hacia abajo, así que hay un máximo.</div>
+                  <div class="paso"><strong>Posición de la altura máxima:</strong><span class="formula">x = −1,6/(2·(−0,05)) = −1,6/(−0,1) = 16 m</span></div>
+                  <div class="paso"><strong>Altura máxima:</strong><span class="formula">y(16) = −0,05(16)² + 1,6(16) = −12,8 + 25,6 = 12,8 m</span></div>
+                  <div class="paso"><strong>Ancho del arco:</strong> el arco toca el suelo cuando y = 0:<span class="formula">−0,05x² + 1,6x = 0 &nbsp;⟹&nbsp; x(−0,05x + 1,6) = 0</span></div>
+                  <div class="paso"><strong>Resuelve por factorización:</strong> x = 0 o −0,05x + 1,6 = 0, de donde x = 32 m.</div>
+                  <div class="paso"><strong>Interpreta:</strong> el arco comienza en x = 0 y termina en x = 32, por lo que su luz es de 32 m. El vértice está justo en la mitad, x = 16.</div>
+                </div>
+                <div class="respuesta-final">
+                  <svg class="icono"><use href="#i-check-circulo"/></svg>
+                  <div><strong>Respuesta:</strong> el arco alcanza <strong>12,8 m de altura</strong> en su punto central y tiene una <strong>luz de 32 m</strong>.</div>
+                </div>
+                <p class="interpretacion"><strong>Interpretación:</strong> la factorización fue más rápida que la fórmula general porque c = 0: bastó con sacar factor común x.</p>
+              </details>
+            </div>
+          </article>
+
+          <!-- Ejemplo 6 -->
+          <article class="tarjeta-ejemplo">
+            <div class="ejemplo-cabecera">
+              <span class="icono-cuadro verde"><svg class="icono"><use href="#i-trofeo"/></svg></span>
+              <div><h3>6. Los ingresos del teatro</h3><p class="contexto">Contexto: ventas e ingresos</p></div>
+            </div>
+            <div class="ejemplo-cuerpo">
+              <div class="enunciado-caja">
+                <p>Un teatro cobra <em>p</em> miles de pesos por boleta y vende 5000 − 100p boletas. El ingreso total, en miles de pesos, es:</p>
+                <span class="formula">I(p) = p(5000 − 100p) = −100p<sup>2</sup> + 5000p</span>
+                <p style="margin-top:.5rem">¿Qué precio maximiza el ingreso? ¿Qué precios producen ingreso cero?</p>
+              </div>
+              <div class="mini-grafica-caja"><canvas class="mini-grafica" data-a="-100" data-b="5000" data-c="0" data-xmin="-2" data-xmax="52" aria-label="Gráfica del ingreso del teatro en función del precio de la boleta"></canvas></div>
+              <details class="detalle-solucion">
+                <summary><svg class="icono"><use href="#i-flecha"/></svg></summary>
+                <div class="pasos">
+                  <div class="paso"><strong>Identifica:</strong> a = −100, b = 5000, c = 0. La parábola abre hacia abajo: hay un ingreso máximo.</div>
+                  <div class="paso"><strong>Precio óptimo:</strong><span class="formula">p = −5000/(2·(−100)) = 25</span> Es decir, <strong>25 000 pesos</strong> por boleta.</div>
+                  <div class="paso"><strong>Ingreso máximo:</strong><span class="formula">I(25) = −100(25)² + 5000(25) = −62 500 + 125 000 = 62 500</span> Es decir, <strong>62 500 000 pesos</strong>.</div>
+                  <div class="paso"><strong>Ingreso cero:</strong> igualamos a cero y factorizamos:<span class="formula">−100p² + 5000p = 0 &nbsp;⟹&nbsp; p(−100p + 5000) = 0</span></div>
+                  <div class="paso"><strong>Raíces:</strong> p = 0 (boletas gratis) o p = 50 (50 000 pesos, nadie compra). El discriminante es Δ = 5000² = 25 000 000 &gt; 0.</div>
+                  <div class="paso"><strong>Comprueba:</strong> a 25 000 pesos se venden 5000 − 100(25) = 2500 boletas; 2500 × 25 000 = 62 500 000 pesos.</div>
+                </div>
+                <div class="respuesta-final">
+                  <svg class="icono"><use href="#i-check-circulo"/></svg>
+                  <div><strong>Respuesta:</strong> el ingreso se maximiza cobrando <strong>25 000 pesos</strong> y alcanza <strong>62 500 000 pesos</strong>. El ingreso es cero a <strong>0 y 50 000 pesos</strong>.</div>
+                </div>
+                <p class="interpretacion"><strong>Interpretación:</strong> subir demasiado el precio reduce la cantidad de boletas vendidas; el vértice encuentra el equilibrio perfecto entre precio y cantidad.</p>
+              </details>
+            </div>
+          </article>
+        </div>
+
+        <div class="aviso-didactico">
+          <svg class="icono"><use href="#i-bombilla"/></svg>
+          <div><strong>Consejo de estudio.</strong> Después de leer cada solución, intenta repetir los pasos en tu cuaderno sin mirar. Luego entra a la <a href="#grafica" data-seccion="grafica">gráfica interactiva</a> y escribe los mismos valores de a, b y c para comprobar el vértice y las raíces.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= GRÁFICA INTERACTIVA ================= -->
+    <section class="seccion" id="grafica" aria-labelledby="tituloGrafica">
+      <div class="contenedor">
+        <div class="cabecera-seccion">
+          <span class="etiqueta"><svg class="icono"><use href="#i-grafica"/></svg>Laboratorio interactivo</span>
+          <h2 id="tituloGrafica">Explora la <span class="acento">parábola</span> en tiempo real</h2>
+          <p>Mueve los controles de <em>a</em>, <em>b</em> y <em>c</em> y observa cómo cambian la apertura, el vértice, el eje de simetría, las raíces y el discriminante. Puedes arrastrar la gráfica y usar la rueda del mouse o los botones para acercar.</p>
+        </div>
+
+        <div class="laboratorio">
+          <div class="panel-grafica">
+            <div class="lienzo-caja">
+              <canvas id="lienzoGrafica" width="900" height="560" aria-label="Gráfica interactiva de la función cuadrática"></canvas>
+              <div class="zoom-controles no-imprimir">
+                <button type="button" id="zoomIn" title="Acercar" aria-label="Acercar">+</button>
+                <button type="button" id="zoomOut" title="Alejar" aria-label="Alejar">−</button>
+                <button type="button" id="zoomReset" title="Centrar y restablecer" aria-label="Centrar y restablecer">⟲</button>
+              </div>
+            </div>
+            <div class="leyenda">
+              <span><i class="punto-leyenda"></i>Parábola</span>
+              <span><i class="punto-leyenda vertice"></i>Vértice</span>
+              <span><i class="punto-leyenda eje"></i>Eje de simetría</span>
+              <span><i class="punto-leyenda raiz"></i>Raíces</span>
+              <span><i class="punto-leyenda intercepto"></i>Corte con el eje y</span>
+              <span style="margin-left:auto">Arrastra para mover · rueda para acercar</span>
+            </div>
+          </div>
+
+          <div class="controles">
+            <h3><svg class="icono"><use href="#i-lapiz"/></svg>Coeficientes de la función</h3>
+            <div class="ecuacion-viva" id="ecuacionViva" aria-live="polite">f(x) = x²</div>
+
+            <div class="control-valor">
+              <label for="aRango">a</label>
+              <input type="range" id="aRango" min="-5" max="5" step="0.1" value="1" aria-label="Valor del coeficiente a">
+              <input type="number" id="aNumero" min="-5" max="5" step="0.1" value="1" aria-label="Escribir el coeficiente a">
+            </div>
+            <div class="control-valor">
+              <label for="bRango">b</label>
+              <input type="range" id="bRango" min="-10" max="10" step="0.1" value="0" aria-label="Valor del coeficiente b">
+              <input type="number" id="bNumero" min="-10" max="10" step="0.1" value="0" aria-label="Escribir el coeficiente b">
+            </div>
+            <div class="control-valor">
+              <label for="cRango">c</label>
+              <input type="range" id="cRango" min="-10" max="10" step="0.1" value="0" aria-label="Valor del coeficiente c">
+              <input type="number" id="cNumero" min="-10" max="10" step="0.1" value="0" aria-label="Escribir el coeficiente c">
+            </div>
+
+            <div class="aviso-grafica oculto" id="avisoGrafica">
+              <svg class="icono"><use href="#i-alerta"/></svg>
+              <span>Si <strong>a = 0</strong> la expresión deja de ser cuadrática: sería una función lineal. Elige un valor distinto de cero para ver la parábola.</span>
+            </div>
+
+            <div>
+              <div class="indice-titulo" style="padding:0 0 .4rem">Ejemplos rápidos</div>
+              <div class="presets">
+                <button type="button" class="chip-preset" data-preset="1,0,0">f(x) = x²</button>
+                <button type="button" class="chip-preset" data-preset="-1,2,3">abre hacia abajo</button>
+                <button type="button" class="chip-preset" data-preset="1,-2,-3">dos raíces</button>
+                <button type="button" class="chip-preset" data-preset="1,0,4">sin raíces</button>
+                <button type="button" class="chip-preset" data-preset="1,-4,4">una raíz</button>
+                <button type="button" class="chip-preset" data-preset="2,-8,1">parábola angosta</button>
+                <button type="button" class="chip-preset" data-preset="0.25,0,0">parábola amplia</button>
+                <button type="button" class="chip-preset" data-preset="aleatorio">aleatorio</button>
+              </div>
+            </div>
+
+            <div class="opciones-vista">
+              <label><input type="checkbox" id="mostrarVertice" checked> Vértice</label>
+              <label><input type="checkbox" id="mostrarEje" checked> Eje</label>
+              <label><input type="checkbox" id="mostrarRaices" checked> Raíces</label>
+              <label><input type="checkbox" id="mostrarCorte" checked> Corte y</label>
+              <label><input type="checkbox" id="mostrarPuntos"> Puntos de apoyo</label>
+            </div>
+
+            <div>
+              <div class="indice-titulo" style="padding:0 0 .4rem">Análisis de la función</div>
+              <div class="rejilla-datos" id="panelDatos">
+                <div class="dato-mate"><span>Vértice</span><strong id="datoVertice">(0, 0)</strong></div>
+                <div class="dato-mate"><span>Eje de simetría</span><strong id="datoEje">x = 0</strong></div>
+                <div class="dato-mate"><span>Discriminante</span><strong id="datoDiscriminante">Δ = 0</strong></div>
+                <div class="dato-mate"><span>Raíces</span><strong id="datoRaices">x = 0 (doble)</strong></div>
+                <div class="dato-mate"><span>Apertura</span><strong id="datoDireccion">Hacia arriba · mínimo</strong></div>
+                <div class="dato-mate"><span>Corte con el eje y</span><strong id="datoCorteY">(0, 0)</strong></div>
+                <div class="dato-mate ancho"><span>Forma vértice</span><strong id="datoFormaVertice">f(x) = (x − 0)² + 0</strong></div>
+                <div class="dato-mate"><span>Dominio</span><strong id="datoDominio">ℝ (todos los reales)</strong></div>
+                <div class="dato-mate"><span>Rango</span><strong id="datoRango">[0, +∞)</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <details class="detalles-calculo" open>
+          <summary><svg class="icono"><use href="#i-formula"/></svg>Cómo se calcula todo (paso a paso)</summary>
+          <div class="cuerpo">
+            <div id="pasosGrafica"></div>
+            <p class="solo-lectores" id="resumenGrafica" aria-live="polite"></p>
+          </div>
+        </details>
+
+        <details class="detalles-calculo">
+          <summary><svg class="icono"><use href="#i-barras"/></svg>Tabla de valores alrededor del vértice</summary>
+          <div class="cuerpo">
+            <div style="overflow-x:auto"><table class="tabla-valores" id="tablaValores"></table></div>
+            <p style="font-size:.8rem;color:var(--muted);margin-top:.6rem">Observa la simetría: los valores de f(x) se repiten a la misma distancia del vértice.</p>
+          </div>
+        </details>
+
+        <div class="aviso-didactico">
+          <svg class="icono"><use href="#i-bombilla"/></svg>
+          <div><strong>Reto de exploración.</strong> Intenta responder antes de mover: ¿qué pasa con la parábola si aumentas <em>a</em>? ¿Y si cambias el signo de <em>c</em>? ¿Puedes conseguir que el discriminante sea negativo? Comprueba tus hipótesis moviendo los controles.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= JUEGOS ================= -->
+    <section class="seccion" id="juegos" aria-labelledby="tituloJuegos">
+      <div class="contenedor">
+        <div class="cabecera-seccion">
+          <span class="etiqueta"><svg class="icono"><use href="#i-dado"/></svg>Arcade matemático</span>
+          <h2 id="tituloJuegos">Diez juegos para <span class="acento">aprender jugando</span></h2>
+          <p>Elige un reto, suma puntos y descubre por qué cada respuesta funciona. Hay juegos rápidos, de lógica, palabras y estrategia; todos guardan tu récord y te dan retroalimentación inmediata.</p>
+        </div>
+        <div class="banner-juegos">
+          <div class="banner-juegos-icono"><svg class="icono"><use href="#i-trofeo"/></svg></div>
+          <div><strong>Desbloquea la colección completa</strong><p>Supera los 10 juegos para conseguir la insignia <b>Maestro de la parábola</b>.</p></div>
+          <span class="chip-nivel">10 retos · 3 niveles</span>
+        </div>
+        <div id="juegosLobby">
+          <div class="rejilla-juegos">
+            <article class="tarjeta-juego"><span class="insignia-juego">Conceptos</span><span class="icono-cuadro coral"><svg class="icono"><use href="#i-check-circulo"/></svg></span><h3>Verdadero o falso</h3><p>Decide si 12 afirmaciones sobre funciones cuadráticas son verdaderas o falsas. Aprende del porqué de cada respuesta.</p><div class="juego-meta"><span>12 afirmaciones</span><span>Récord: <strong id="record-vf">sin jugar</strong></span></div><button type="button" class="btn btn-primario" data-jugar="vf">Jugar ahora <svg class="icono"><use href="#i-play"/></svg></button></article>
+            <article class="tarjeta-juego"><span class="insignia-juego">Memoria</span><span class="icono-cuadro verde"><svg class="icono"><use href="#i-enlace"/></svg></span><h3>Emparejar conceptos</h3><p>Une cada concepto con su definición o fórmula. Encuentra las 8 parejas con la menor cantidad de intentos.</p><div class="juego-meta"><span>8 parejas</span><span>Récord: <strong id="record-parear">sin jugar</strong></span></div><button type="button" class="btn btn-primario" data-jugar="parear">Jugar ahora <svg class="icono"><use href="#i-play"/></svg></button></article>
+            <article class="tarjeta-juego"><span class="insignia-juego">Álgebra</span><span class="icono-cuadro ambar"><svg class="icono"><use href="#i-lapiz"/></svg></span><h3>Completar la función</h3><p>A partir del vértice, las raíces o los cortes, escribe los coeficientes a, b y c que faltan.</p><div class="juego-meta"><span>5 retos</span><span>Récord: <strong id="record-completar">sin jugar</strong></span></div><button type="button" class="btn btn-primario" data-jugar="completar">Jugar ahora <svg class="icono"><use href="#i-play"/></svg></button></article>
+            <article class="tarjeta-juego"><span class="insignia-juego">Visual</span><span class="icono-cuadro azul"><svg class="icono"><use href="#i-diana"/></svg></span><h3>Identificar el vértice</h3><p>Mira la función y elige el vértice correcto entre cuatro opciones. Ocho rondas para afinar el ojo algebraico.</p><div class="juego-meta"><span>8 rondas</span><span>Récord: <strong id="record-vertice">sin jugar</strong></span></div><button type="button" class="btn btn-primario" data-jugar="vertice">Jugar ahora <svg class="icono"><use href="#i-play"/></svg></button></article>
+            <article class="tarjeta-juego"><span class="insignia-juego">Velocidad</span><span class="icono-cuadro rosa"><svg class="icono"><use href="#i-reloj"/></svg></span><h3>Reto contrarreloj</h3><p>60 segundos, preguntas rápidas y una racha que multiplica tus puntos. ¿Cuántas puedes responder?</p><div class="juego-meta"><span>60 segundos</span><span>Récord: <strong id="record-reto">sin jugar</strong></span></div><button type="button" class="btn btn-primario" data-jugar="reto">Jugar ahora <svg class="icono"><use href="#i-play"/></svg></button></article>
+            <article class="tarjeta-juego juego-destacado"><span class="insignia-juego">Lógica</span><span class="icono-cuadro violeta"><svg class="icono"><use href="#i-diana"/></svg></span><h3>Sudoku cuadrático</h3><p>Completa el tablero 4×4 sin repetir números en filas ni columnas. Piensa, prueba y corrige.</p><div class="juego-meta"><span>Tablero 4×4</span><span>Récord: <strong id="record-sudoku">sin jugar</strong></span></div><button type="button" class="btn btn-primario" data-jugar="sudoku">Resolver ahora <svg class="icono"><use href="#i-play"/></svg></button></article>
+            <article class="tarjeta-juego juego-destacado"><span class="insignia-juego">Palabras</span><span class="icono-cuadro coral"><svg class="icono"><use href="#i-lista"/></svg></span><h3>Crucigrama algebraico</h3><p>Completa las palabras clave de la parábola con pistas de fórmulas, gráfica y aplicaciones.</p><div class="juego-meta"><span>6 pistas</span><span>Récord: <strong id="record-crucigrama">sin jugar</strong></span></div><button type="button" class="btn btn-primario" data-jugar="crucigrama">Resolver ahora <svg class="icono"><use href="#i-play"/></svg></button></article>
+            <article class="tarjeta-juego juego-destacado"><span class="insignia-juego">Exploración</span><span class="icono-cuadro verde"><svg class="icono"><use href="#i-ojo"/></svg></span><h3>Sopa de letras</h3><p>Encuentra vértice, raíces, delta, parábola y factor en una cuadrícula escondida.</p><div class="juego-meta"><span>5 palabras</span><span>Récord: <strong id="record-sopa">sin jugar</strong></span></div><button type="button" class="btn btn-primario" data-jugar="sopa">Buscar palabras <svg class="icono"><use href="#i-play"/></svg></button></article>
+            <article class="tarjeta-juego juego-destacado"><span class="insignia-juego">Método</span><span class="icono-cuadro ambar"><svg class="icono"><use href="#i-flecha"/></svg></span><h3>Ordena los pasos</h3><p>Organiza el procedimiento correcto para resolver una ecuación cuadrática con fórmula general.</p><div class="juego-meta"><span>4 pasos</span><span>Récord: <strong id="record-ordenar">sin jugar</strong></span></div><button type="button" class="btn btn-primario" data-jugar="ordenar">Ordenar ahora <svg class="icono"><use href="#i-play"/></svg></button></article>
+            <article class="tarjeta-juego juego-destacado"><span class="insignia-juego">Ráfaga</span><span class="icono-cuadro azul"><svg class="icono"><use href="#i-rayo"/></svg></span><h3>Desafío relámpago</h3><p>45 segundos de preguntas contextualizadas sobre deportes, áreas, costos y ganancias.</p><div class="juego-meta"><span>45 segundos</span><span>Récord: <strong id="record-relampago">sin jugar</strong></span></div><button type="button" class="btn btn-primario" data-jugar="relampago">Comenzar reto <svg class="icono"><use href="#i-play"/></svg></button></article>
+            <article class="tarjeta-juego tarjeta-coleccion"><span class="icono-cuadro"><svg class="icono"><use href="#i-trofeo"/></svg></span><h3>Tu colección de récords</h3><p>Completa los diez juegos para desbloquear tu insignia de explorador. Todos tus resultados se guardan automáticamente.</p><div class="juego-meta"><span id="juegosCompletadosTexto">0 de 10 completados</span><a class="enlace-flecha" href="#retroalimentacion" data-seccion="retroalimentacion">Ver progreso <svg class="icono"><use href="#i-flecha"/></svg></a></div></article>
+          </div>
+        </div>
+        <div class="panel-juego oculto" id="panelJuego">
+          <div class="juego-barra"><button type="button" class="btn btn-fantasma" id="salirJuego"><svg class="icono"><use href="#i-flecha-izq"/></svg> Volver a los juegos</button><h3 id="tituloJuego">Juego</h3><span class="puntaje-vivo" id="puntajeJuego">Puntaje: 0</span></div>
+          <div id="juegoCuerpo"></div>
+        </div>
+      </div>
+    </section>
+    <!-- ================= QUIZ ================= -->
+    <section class="seccion" id="quiz" aria-labelledby="tituloQuiz">
+      <div class="contenedor">
+        <div class="cabecera-seccion">
+          <span class="etiqueta"><svg class="icono"><use href="#i-quiz"/></svg>Quiz de práctica</span>
+          <h2 id="tituloQuiz">Comprueba lo que <span class="acento">aprendiste</span></h2>
+          <p>22 preguntas de selección múltiple con niveles fácil, medio y difícil. Cada respuesta te explica al instante por qué es correcta o incorrecta, y al final recibes tu puntaje y una recomendación de estudio.</p>
+        </div>
+        <div id="quizApp" class="cuestionario"></div>
+      </div>
+    </section>
+
+    <!-- ================= EVALUACIÓN FINAL ================= -->
+    <section class="seccion" id="evaluacion" aria-labelledby="tituloEvaluacion">
+      <div class="contenedor">
+        <div class="cabecera-seccion">
+          <span class="etiqueta"><svg class="icono"><use href="#i-medalla"/></svg>Evaluación final</span>
+          <h2 id="tituloEvaluacion">Demuestra todo lo que <span class="acento">dominas</span></h2>
+          <p>Esta evaluación reúne 22 preguntas de mayor nivel de exigencia. Al terminar verás tu puntaje, el porcentaje, las respuestas correctas e incorrectas, una recomendación personalizada y, si apruebas, un certificado imprimible.</p>
+        </div>
+        <div id="evalApp" class="cuestionario"></div>
+      </div>
+    </section>
+
+    <!-- ================= RETROALIMENTACIÓN ================= -->
+    <section class="seccion" id="retroalimentacion" aria-labelledby="tituloRetro">
+      <div class="contenedor">
+        <div class="cabecera-seccion">
+          <span class="etiqueta"><svg class="icono"><use href="#i-chat"/></svg>Retroalimentación</span>
+          <h2 id="tituloRetro">Tu progreso, <span class="acento">paso a paso</span></h2>
+          <p>Aquí se reúne todo lo que has hecho: conceptos explorados, juegos completados, resultados del quiz y de la evaluación, y recomendaciones para seguir mejorando.</p>
+        </div>
+
+        <div class="panel-progreso">
+          <div class="anillo-progreso">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="fondo" cx="60" cy="60" r="52"/>
+              <circle class="valor" id="circuloProgreso" cx="60" cy="60" r="52" stroke-dasharray="0 326.7"/>
+            </svg>
+            <div class="centro"><strong id="porcentajeProgreso">0%</strong><span>progreso total</span></div>
+          </div>
+          <div class="resumen-progreso">
+            <h3 id="textoResumenProgreso">¡Tu aventura apenas comienza!</h3>
+            <p id="detalleResumenProgreso">Explora los conceptos, juega y completa las evaluaciones. Tu avance se guarda automáticamente en este dispositivo.</p>
+            <div class="metricas" id="metricasProgreso"></div>
+            <div class="acciones-panel">
+              <a href="#explicaciones" class="btn btn-secundario" data-seccion="explicaciones"><svg class="icono"><use href="#i-libro"/></svg>Repasar conceptos</a>
+              <button type="button" class="btn btn-peligro" id="btnReiniciarPanel"><svg class="icono"><use href="#i-reiniciar"/></svg>Reiniciar actividades</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="subtitulo-bloque">
+          <h3>Resumen de resultados</h3>
+          <p>Se actualiza con cada actividad</p>
+        </div>
+        <div class="rejilla rejilla-4" id="estadisticasRetro"></div>
+        <div class="insignias-panel bloque-temas"><div class="subtitulo-bloque"><h3>Insignias desbloqueables</h3><p>Convierte tu avance en logros visibles.</p></div><div id="insigniasRetro" class="insignias-grid"></div></div>
+
+        <div class="rejilla rejilla-2" style="margin-top:1rem">
+          <div class="bloque-temas">
+            <h3 style="font-size:1.05rem;display:flex;align-items:center;gap:.45rem"><svg class="icono" style="color:var(--violeta)"><use href="#i-barras"/></svg>Desempeño por tema</h3>
+            <p style="font-size:.8rem;color:var(--muted);margin:0">Porcentaje de aciertos en las preguntas de quiz y evaluación.</p>
+            <div id="barrasTemas"></div>
+          </div>
+          <div class="bloque-temas">
+            <h3 style="font-size:1.05rem;display:flex;align-items:center;gap:.45rem"><svg class="icono" style="color:var(--violeta)"><use href="#i-bombilla"/></svg>Recomendaciones de estudio</h3>
+            <p style="font-size:.8rem;color:var(--muted);margin:0">Sugerencias basadas en tus resultados.</p>
+            <div class="recomendacion-panel" id="recomendacionesRetro"></div>
+          </div>
+        </div>
+
+        <div class="bloque-temas" style="margin-top:1rem">
+          <h3 style="font-size:1.05rem;display:flex;align-items:center;gap:.45rem"><svg class="icono" style="color:var(--violeta)"><use href="#i-reloj"/></svg>Historial de actividades</h3>
+          <div id="historialRetro"></div>
+        </div>
+
+        <div class="aviso-didactico">
+          <svg class="icono"><use href="#i-info"/></svg>
+          <div><strong>¿Cómo se calcula el progreso total?</strong> Los conceptos explorados aportan un 25 %, los ejemplos revisados un 15 %, los juegos completados un 20 %, el mejor resultado del quiz un 20 % y el de la evaluación final un 20 %. Todo se guarda en la memoria del navegador: si cambias de dispositivo o borras los datos del navegador, el avance se reinicia.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= RECURSOS ================= -->
+    <section class="seccion" id="recursos" aria-labelledby="tituloRecursos">
+      <div class="contenedor">
+        <div class="cabecera-seccion">
+          <span class="etiqueta"><svg class="icono"><use href="#i-carpeta"/></svg>Recursos adicionales</span>
+          <h2 id="tituloRecursos">Sigue <span class="acento">explorando</span></h2>
+          <p>Materiales complementarios, herramientas para graficar y canales con explicaciones en video. Todos los enlaces abren en una pestaña nueva y pertenecen a sitios educativos reconocidos.</p>
+        </div>
+
+        <div class="rejilla-recursos">
+          <a class="tarjeta-recurso" href="https://es.khanacademy.org/math/algebra/x2f8bb11595b61c86:quadratic-functions-equations" target="_blank" rel="noopener noreferrer">
+            <span class="icono-cuadro verde"><svg class="icono"><use href="#i-libro"/></svg></span>
+            <span class="tipo-recurso">Curso interactivo</span>
+            <h3>Khan Academy: funciones cuadráticas</h3>
+            <p>Videos, ejercicios y práctica guiada sobre parábolas, vértice, raíces y factorización.</p>
+            <span class="dominio"><svg class="icono"><use href="#i-enlace"/></svg>es.khanacademy.org</span>
+          </a>
+
+          <a class="tarjeta-recurso" href="https://www.geogebra.org/graphing" target="_blank" rel="noopener noreferrer">
+            <span class="icono-cuadro"><svg class="icono"><use href="#i-grafica"/></svg></span>
+            <span class="tipo-recurso">Herramienta de gráficas</span>
+            <h3>GeoGebra: calculadora gráfica</h3>
+            <p>Escribe cualquier función cuadrática y experimenta con sus parámetros, puntos y transformaciones.</p>
+            <span class="dominio"><svg class="icono"><use href="#i-enlace"/></svg>geogebra.org</span>
+          </a>
+
+          <a class="tarjeta-recurso" href="https://phet.colorado.edu/es/simulations/filter?subjects=math&type=html" target="_blank" rel="noopener noreferrer">
+            <span class="icono-cuadro ambar"><svg class="icono"><use href="#i-dado"/></svg></span>
+            <span class="tipo-recurso">Simulaciones</span>
+            <h3>PhET: simulaciones de matemáticas</h3>
+            <p>Laboratorios interactivos de la Universidad de Colorado para visualizar conceptos matemáticos.</p>
+            <span class="dominio"><svg class="icono"><use href="#i-enlace"/></svg>phet.colorado.edu</span>
+          </a>
+
+          <a class="tarjeta-recurso" href="https://www.youtube.com/@julioprofe" target="_blank" rel="noopener noreferrer">
+            <span class="icono-cuadro coral"><svg class="icono"><use href="#i-play"/></svg></span>
+            <span class="tipo-recurso">Videos</span>
+            <h3>JulioProfe</h3>
+            <p>Canal con clases de álgebra, ecuaciones cuadráticas y factorización explicadas de forma sencilla.</p>
+            <span class="dominio"><svg class="icono"><use href="#i-enlace"/></svg>youtube.com/@julioprofe</span>
+          </a>
+
+          <a class="tarjeta-recurso" href="https://www.youtube.com/@MatematicasprofeAlex" target="_blank" rel="noopener noreferrer">
+            <span class="icono-cuadro rosa"><svg class="icono"><use href="#i-play"/></svg></span>
+            <span class="tipo-recurso">Videos</span>
+            <h3>Matemáticas profe Alex</h3>
+            <p>Ejercicios resueltos de funciones cuadráticas, fórmula general y gráficas paso a paso.</p>
+            <span class="dominio"><svg class="icono"><use href="#i-enlace"/></svg>youtube.com/@MatematicasprofeAlex</span>
+          </a>
+
+          <a class="tarjeta-recurso" href="https://www.matesfacil.com/" target="_blank" rel="noopener noreferrer">
+            <span class="icono-cuadro azul"><svg class="icono"><use href="#i-lista"/></svg></span>
+            <span class="tipo-recurso">Ejercicios</span>
+            <h3>Matesfácil</h3>
+            <p>Problemas resueltos de ecuaciones de segundo grado con explicaciones detalladas.</p>
+            <span class="dominio"><svg class="icono"><use href="#i-enlace"/></svg>matesfacil.com</span>
+          </a>
+
+          <a class="tarjeta-recurso" href="https://www.colombiaaprende.edu.co/" target="_blank" rel="noopener noreferrer">
+            <span class="icono-cuadro verde"><svg class="icono"><use href="#i-escuela"/></svg></span>
+            <span class="tipo-recurso">Portal educativo</span>
+            <h3>Colombia Aprende</h3>
+            <p>Recursos del Ministerio de Educación Nacional para estudiantes y docentes de todo el país.</p>
+            <span class="dominio"><svg class="icono"><use href="#i-enlace"/></svg>colombiaaprende.edu.co</span>
+          </a>
+
+          <a class="tarjeta-recurso" href="https://www.wolframalpha.com/" target="_blank" rel="noopener noreferrer">
+            <span class="icono-cuadro"><svg class="icono"><use href="#i-formula"/></svg></span>
+            <span class="tipo-recurso">Calculadora simbólica</span>
+            <h3>Wolfram Alpha</h3>
+            <p>Comprueba raíces, vértices, discriminantes y gráficas de cualquier función cuadrática.</p>
+            <span class="dominio"><svg class="icono"><use href="#i-enlace"/></svg>wolframalpha.com</span>
+          </a>
+
+          <a class="tarjeta-recurso" href="https://proyectodescartes.org/" target="_blank" rel="noopener noreferrer">
+            <span class="icono-cuadro ambar"><svg class="icono"><use href="#i-grafica"/></svg></span>
+            <span class="tipo-recurso">Material interactivo</span>
+            <h3>Proyecto Descartes</h3>
+            <p>Unidades didácticas interactivas de matemáticas para secundaria, con actividades autocorregibles.</p>
+            <span class="dominio"><svg class="icono"><use href="#i-enlace"/></svg>proyectodescartes.org</span>
+          </a>
+        </div>
+
+        <div class="subtitulo-bloque">
+          <h3>Formulario para tu cuaderno</h3>
+          <p>Imprime o guarda esta hoja de fórmulas</p>
+        </div>
+
+        <div class="formulario" id="formularioImprimible">
+          <div style="display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;flex-wrap:wrap">
+            <div>
+              <h3>Formulario de funciones cuadráticas</h3>
+              <p>Resumen de las fórmulas esenciales del tema.</p>
+            </div>
+            <button type="button" class="btn btn-secundario no-imprimir" id="btnImprimirFormulario"><svg class="icono"><use href="#i-imprimir"/></svg>Imprimir formulario</button>
+          </div>
+          <div class="rejilla-formulas">
+            <div class="bloque-formula">
+              <h4>Forma general</h4>
+              <span class="formula">f(x) = ax<sup>2</sup> + bx + c, a ≠ 0</span>
+              <p>Su gráfica es una parábola.</p>
+            </div>
+            <div class="bloque-formula">
+              <h4>Vértice</h4>
+              <span class="formula">V(−b/2a, f(−b/2a))</span>
+              <p>Punto mínimo si a &gt; 0; máximo si a &lt; 0.</p>
+            </div>
+            <div class="bloque-formula">
+              <h4>Eje de simetría</h4>
+              <span class="formula">x = −b/2a</span>
+              <p>Recta vertical que pasa por el vértice.</p>
+            </div>
+            <div class="bloque-formula">
+              <h4>Discriminante</h4>
+              <span class="formula">Δ = b<sup>2</sup> − 4ac</span>
+              <p>Δ &gt; 0: dos raíces · Δ = 0: una · Δ &lt; 0: ninguna real.</p>
+            </div>
+            <div class="bloque-formula">
+              <h4>Fórmula general</h4>
+              <span class="formula">x = (−b ± √Δ)/(2a)</span>
+              <p>Resuelve ax² + bx + c = 0.</p>
+            </div>
+            <div class="bloque-formula">
+              <h4>Forma vértice</h4>
+              <span class="formula">f(x) = a(x − h)<sup>2</sup> + k</span>
+              <p>Se obtiene completando cuadrados.</p>
+            </div>
+            <div class="bloque-formula">
+              <h4>Forma factorizada</h4>
+              <span class="formula">f(x) = a(x − r<sub>1</sub>)(x − r<sub>2</sub>)</span>
+              <p>r₁ y r₂ son las raíces de la función.</p>
+            </div>
+            <div class="bloque-formula">
+              <h4>Corte con el eje y</h4>
+              <span class="formula">(0, c)</span>
+              <p>Se obtiene evaluando f(0).</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="subtitulo-bloque">
+          <h3>Glosario rápido</h3>
+          <p>Palabras clave del tema</p>
+        </div>
+        <dl class="glosario">
+          <div class="termino"><dt>Coeficiente</dt><dd>Número que multiplica a una variable. En ax² + bx + c, los coeficientes son a, b y c.</dd></div>
+          <div class="termino"><dt>Dominio</dt><dd>Conjunto de valores que puede tomar x. En una función cuadrática es todo ℝ.</dd></div>
+          <div class="termino"><dt>Rango</dt><dd>Conjunto de valores que toma y. Depende del vértice y del signo de a.</dd></div>
+          <div class="termino"><dt>Raíz</dt><dd>Valor de x para el cual f(x) = 0. Gráficamente, corte con el eje x.</dd></div>
+          <div class="termino"><dt>Cero de una función</dt><dd>Sinónimo de raíz: punto donde la función vale cero.</dd></div>
+          <div class="termino"><dt>Discriminante</dt><dd>Expresión Δ = b² − 4ac que indica el número de raíces reales.</dd></div>
+          <div class="termino"><dt>Concavidad</dt><dd>Orientación de la parábola: hacia arriba si a &gt; 0, hacia abajo si a &lt; 0.</dd></div>
+          <div class="termino"><dt>Monomio</dt><dd>Expresión algebraica de un solo término, como 3x².</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ================= AYUDA / MANUAL ================= -->
+    <section class="seccion" id="ayuda" aria-labelledby="tituloAyuda">
+      <div class="contenedor">
+        <div class="cabecera-seccion">
+          <span class="etiqueta"><svg class="icono"><use href="#i-ayuda"/></svg>Ayuda y manual de usuario</span>
+          <h2 id="tituloAyuda">¿Cómo usar la <span class="acento">plataforma</span>?</h2>
+          <p>Esta guía te explica cómo navegar, cómo aprovechar cada sección y cómo resolver los problemas más comunes. Está pensada para estudiantes y docentes.</p>
+        </div>
+
+        <div class="manual-grid">
+          <div class="tarjeta">
+            <h3 style="font-size:1.1rem;margin-bottom:.8rem;display:flex;align-items:center;gap:.45rem"><svg class="icono" style="color:var(--violeta)"><use href="#i-menu"/></svg>Primeros pasos</h3>
+            <div class="pasos-uso">
+              <div class="paso-uso"><strong>Elige una sección.</strong> Usa el menú superior en computador o el botón de menú (☰) en el celular.</div>
+              <div class="paso-uso"><strong>Lee los conceptos.</strong> En Explicaciones, haz clic en cada uno de los nueve temas del índice.</div>
+              <div class="paso-uso"><strong>Experimenta.</strong> En la Gráfica, mueve los deslizadores de a, b y c y observa los cambios.</div>
+              <div class="paso-uso"><strong>Practica.</strong> Resuelve los ejemplos y luego juega. Cada juego te dice si acertaste y por qué.</div>
+              <div class="paso-uso"><strong>Evalúate.</strong> Haz el quiz y la evaluación final; revisa tu retroalimentación y tu certificado.</div>
+            </div>
+          </div>
+
+          <div class="tarjeta">
+            <h3 style="font-size:1.1rem;margin-bottom:.8rem;display:flex;align-items:center;gap:.45rem"><svg class="icono" style="color:var(--violeta)"><use href="#i-bombilla"/></svg>Ruta sugerida en 5 sesiones</h3>
+            <div class="pasos-uso">
+              <div class="paso-uso"><strong>Sesión 1:</strong> conceptos 1 a 3 (función, parábola y vértice) y explora la gráfica.</div>
+              <div class="paso-uso"><strong>Sesión 2:</strong> conceptos 4 a 6 (eje, raíces y discriminante) con los ejemplos 1 y 2.</div>
+              <div class="paso-uso"><strong>Sesión 3:</strong> conceptos 7 a 9 (fórmula, factorización y completación) con los ejemplos 3 a 6.</div>
+              <div class="paso-uso"><strong>Sesión 4:</strong> los diez juegos, repitiendo los que menos puntaje te den.</div>
+              <div class="paso-uso"><strong>Sesión 5:</strong> quiz, evaluación final y lectura de la retroalimentación.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subtitulo-bloque">
+          <h3>Manual por sección</h3>
+          <p>Haz clic en cada título para ver las instrucciones</p>
+        </div>
+
+        <div class="acordeon">
+          <details open>
+            <summary><svg class="icono"><use href="#i-grafica"/></svg>Gráfica interactiva</summary>
+            <div class="contenido">
+              <ul>
+                <li><strong>a, b y c:</strong> puedes mover los deslizadores o escribir el valor exacto en la casilla numérica.</li>
+                <li><strong>a no puede ser 0:</strong> si escribes 0, aparecerá un aviso porque la función dejaría de ser cuadrática.</li>
+                <li><strong>Acercar y alejar:</strong> usa los botones +, − y ⟲, o la rueda del mouse. En el celular, utiliza los botones + y −.</li>
+                <li><strong>Mover la vista:</strong> arrastra la gráfica con el mouse o el dedo.</li>
+                <li><strong>Mostrar u ocultar:</strong> marca o desmarca las casillas de vértice, eje, raíces y corte con el eje y.</li>
+                <li><strong>Pasos:</strong> despliega «Cómo se calcula todo» para ver las operaciones con tus valores actuales.</li>
+              </ul>
+            </div>
+          </details>
+          <details>
+            <summary><svg class="icono"><use href="#i-juego"/></svg>Juegos</summary>
+            <div class="contenido">
+              <ul>
+                <li><strong>Verdadero o falso:</strong> pulsa el botón que corresponda; verás la explicación antes de pasar a la siguiente afirmación.</li>
+                <li><strong>Emparejar:</strong> selecciona una ficha de la columna izquierda y luego su pareja de la derecha. Si fallas, las fichas se marcan en rojo.</li>
+                <li><strong>Completar la función:</strong> escribe los valores de a, b y c y pulsa «Comprobar». Puedes pedir una pista.</li>
+                <li><strong>Identificar el vértice:</strong> elige una de las cuatro opciones; la correcta se marca en verde.</li>
+                <li><strong>Reto contrarreloj:</strong> tienes 60 segundos. Cada acierto suma 10 puntos y las rachas suman un bono.</li>
+                <li><strong>Sudoku, crucigrama y sopa de letras:</strong> usa los botones táctiles para completar tableros, pistas y palabras matemáticas.</li>
+                <li><strong>Ordena los pasos y desafío relámpago:</strong> organiza procedimientos y responde preguntas de aplicaciones reales contra el tiempo.</li>
+                <li>Puedes salir de cualquier juego con «Volver a los juegos»; el récord se conserva.</li>
+              </ul>
+            </div>
+          </details>
+          <details>
+            <summary><svg class="icono"><use href="#i-quiz"/></svg>Quiz y evaluación final</summary>
+            <div class="contenido">
+              <ul>
+                <li>Elige una opción entre A, B, C y D. La respuesta se corrige de inmediato y aparece la explicación.</li>
+                <li>Pulsa «Siguiente pregunta» para continuar. No puedes cambiar una respuesta ya enviada.</li>
+                <li>Al final verás puntaje, porcentaje, respuestas correctas e incorrectas, recomendación y revisión detallada.</li>
+                <li>En la evaluación final puedes escribir tu nombre para que aparezca en el certificado si obtienes 70 % o más.</li>
+                <li>Puedes repetir ambas actividades; se guarda tu mejor resultado.</li>
+              </ul>
+            </div>
+          </details>
+          <details>
+            <summary><svg class="icono"><use href="#i-chat"/></svg>Retroalimentación y progreso</summary>
+            <div class="contenido">
+              <ul>
+                <li>El porcentaje global combina conceptos, ejemplos, juegos, quiz y evaluación.</li>
+                <li>Las barras por tema muestran tus fortalezas y las recomendaciones te indican qué repasar.</li>
+                <li>El historial guarda las últimas actividades con fecha, puntaje y porcentaje.</li>
+                <li>El botón «Reiniciar actividades» borra todo el avance guardado en este dispositivo.</li>
+              </ul>
+            </div>
+          </details>
+          <details>
+            <summary><svg class="icono"><use href="#i-reloj"/></svg>Atajos de teclado</summary>
+            <div class="contenido">
+              <table class="tabla-teclas">
+                <tr><td><span class="kbd">Alt</span> + <span class="kbd">→</span></td><td>Ir a la siguiente sección</td></tr>
+                <tr><td><span class="kbd">Alt</span> + <span class="kbd">←</span></td><td>Ir a la sección anterior</td></tr>
+                <tr><td><span class="kbd">Esc</span></td><td>Cerrar el menú móvil o una ventana de confirmación</td></tr>
+                <tr><td><span class="kbd">Tab</span></td><td>Recorrer los elementos interactivos</td></tr>
+                <tr><td><span class="kbd">Enter</span></td><td>Activar el botón o enlace seleccionado</td></tr>
+              </table>
+            </div>
+          </details>
+          <details>
+            <summary><svg class="icono"><use href="#i-alerta"/></svg>Preguntas frecuentes y solución de problemas</summary>
+            <div class="contenido">
+              <ul>
+                <li><strong>¿Necesito internet?</strong> Los contenidos y juegos funcionan sin conexión una vez cargada la página. Los enlaces de recursos y las fuentes tipográficas sí requieren internet.</li>
+                <li><strong>¿Dónde se guarda mi progreso?</strong> En el almacenamiento local del navegador (localStorage). No se envía a ningún servidor.</li>
+                <li><strong>¿Por qué perdí mi avance?</strong> Si borraste los datos del navegador, usaste el modo incógnito o cambiaste de dispositivo, el progreso no se transfiere.</li>
+                <li><strong>No veo la parábola.</strong> Revisa que el valor de a sea distinto de 0 y pulsa ⟲ para restablecer la vista.</li>
+                <li><strong>El certificado no se imprime bien.</strong> Activa la opción «Gráficos de fondo» en el diálogo de impresión y elige tamaño horizontal o carta.</li>
+                <li><strong>Se ve mal en mi celular.</strong> Actualiza el navegador (Chrome, Edge, Firefox o Safari) y gira el equipo a horizontal para la gráfica.</li>
+                <li><strong>¿Puedo usarlo en clase?</strong> Sí, es un recurso educativo de apoyo; se recomienda acompañarlo con la orientación del docente.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CRÉDITOS ================= -->
+    <section class="seccion" id="creditos" aria-labelledby="tituloCreditos">
+      <div class="contenedor">
+        <div class="creditos-hero">
+          <h2 id="tituloCreditos">Créditos del proyecto</h2>
+          <p>Plataforma web para el aprendizaje de funciones cuadráticas en grado décimo. Producto del proyecto de grado de la Institución Educativa Armando Solano, Paipa, Boyacá, 2026.</p>
+        </div>
+
+        <div class="rejilla-autores">
+          <div class="tarjeta-autor">
+            <div class="avatar-grande">CM</div>
+            <h3>Carlos Andrés Moreno Chaparro</h3>
+            <p>Autor · Grado 10-1</p>
+          </div>
+          <div class="tarjeta-autor">
+            <div class="avatar-grande verde">JF</div>
+            <h3>Juan David Fonseca López</h3>
+            <p>Autor · Grado 10-1</p>
+          </div>
+          <div class="tarjeta-autor">
+            <div class="avatar-grande coral">DS</div>
+            <h3>David Santiago Sánchez Pedroza</h3>
+            <p>Autor · Grado 10-1</p>
+          </div>
+        </div>
+
+        <div class="subtitulo-bloque">
+          <h3>Información del proyecto</h3>
+        </div>
+        <div class="ficha-proyecto">
+          <div><span>Institución</span><strong>Institución Educativa Armando Solano</strong></div>
+          <div><span>Municipio</span><strong>Paipa, Boyacá (Colombia)</strong></div>
+          <div><span>Docente orientador</span><strong>Milton Ney Pedroza Soler</strong></div>
+          <div><span>Grado</span><strong>Décimo · 10-1</strong></div>
+          <div><span>Área</span><strong>Matemáticas</strong></div>
+          <div><span>Año</span><strong>2026</strong></div>
+          <div><span>Tecnologías</span><strong>HTML5, CSS3 y JavaScript</strong></div>
+          <div><span>Tipo de producto</span><strong>Plataforma web interactiva educativa</strong></div>
+        </div>
+
+        <div class="rejilla rejilla-2" style="margin-top:1rem">
+          <div class="tarjeta">
+            <h3 style="font-size:1.05rem;margin-bottom:.6rem;display:flex;align-items:center;gap:.45rem"><svg class="icono" style="color:var(--violeta)"><use href="#i-corazon"/></svg>Agradecimientos</h3>
+            <p style="font-size:.86rem;color:var(--muted)">A la Institución Educativa Armando Solano por brindar los espacios y recursos para el desarrollo del proyecto; al docente Milton Ney Pedroza Soler por su orientación, revisión y acompañamiento constante; a nuestras familias por su apoyo; y a los estudiantes de grado décimo, destinatarios de esta propuesta educativa.</p>
+          </div>
+          <div class="tarjeta">
+            <h3 style="font-size:1.05rem;margin-bottom:.6rem;display:flex;align-items:center;gap:.45rem"><svg class="icono" style="color:var(--violeta)"><use href="#i-info"/></svg>Sobre la plataforma</h3>
+            <p style="font-size:.86rem;color:var(--muted)">Todos los contenidos matemáticos fueron elaborados para el proyecto y revisados con base en los Estándares Básicos de Competencias en Matemáticas. La plataforma no sustituye la orientación del docente: es un recurso de apoyo para complementar las clases y promover la exploración autónoma.</p>
+          </div>
+        </div>
+
+        <div class="subtitulo-bloque">
+          <h3>Referencias bibliográficas</h3>
+        </div>
+        <div class="tarjeta">
+          <ul class="referencias">
+            <li>Asamblea Nacional Constituyente. (1991). <em>Constitución Política de Colombia</em>. https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=7153</li>
+            <li>Congreso de la República de Colombia. (1994). <em>Ley 115 de 1994, por la cual se expide la Ley General de Educación</em>. https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=292</li>
+            <li>Fernández-Arana, M. L. (2025). Recursos digitales e interactivos en el desarrollo de la comprensión y vocabulario matemático: Revisión sistemática. <em>Cienciamatria, 11</em>(21). https://doi.org/10.35381/cm.v11i21.1594</li>
+            <li>Ministerio de Educación Nacional. (1998). <em>Lineamientos curriculares: Matemáticas</em>. https://www.mineducacion.gov.co/</li>
+            <li>Ministerio de Educación Nacional. (2006). <em>Estándares básicos de competencias en lenguaje, matemáticas, ciencias y ciudadanas</em>. https://www.mineducacion.gov.co/1621/articles-116042_archivo_pdf2.pdf</li>
+            <li>Vanegas Ibáñez, N. C., Valbuena Duarte, S., &amp; Berrío Valbuena, J. D. (2024). Matemática escolar digital e interactiva. <em>Rastros Rostros, 26</em>(2), 1–16. https://doi.org/10.16925/2382-4921.2024.02.03</li>
+          </ul>
+        </div>
+
+        <div class="licencia" style="margin-top:1rem">
+          <svg class="icono"><use href="#i-info"/></svg>
+          <div><strong>Uso educativo.</strong> Este material puede utilizarse con fines pedagógicos citando a sus autores y a la Institución Educativa Armando Solano. Las marcas y recursos externos pertenecen a sus respectivos propietarios.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <div class="pie-grid">
+        <div>
+          <div class="pie-marca">
+            <span class="marca-logo"><svg class="icono"><use href="#i-logo"/></svg></span>
+            <strong>Funciones cuadráticas · 2026</strong>
+          </div>
+          <p>Plataforma web interactiva para fortalecer el aprendizaje de las funciones cuadráticas en grado décimo. Institución Educativa Armando Solano, Paipa, Boyacá.</p>
+        </div>
+        <div>
+          <h4>Aprender</h4>
+          <a href="#explicaciones" data-seccion="explicaciones">Explicaciones</a>
+          <a href="#ejemplos" data-seccion="ejemplos">Ejemplos resueltos</a>
+          <a href="#grafica" data-seccion="grafica">Gráfica interactiva</a>
+          <a href="#juegos" data-seccion="juegos">Juegos</a>
+        </div>
+        <div>
+          <h4>Evaluar y explorar</h4>
+          <a href="#quiz" data-seccion="quiz">Quiz</a>
+          <a href="#evaluacion" data-seccion="evaluacion">Evaluación final</a>
+          <a href="#retroalimentacion" data-seccion="retroalimentacion">Mi progreso</a>
+          <a href="#recursos" data-seccion="recursos">Recursos</a>
+          <a href="#ayuda" data-seccion="ayuda">Ayuda</a>
+          <a href="#creditos" data-seccion="creditos">Créditos</a>
+        </div>
+      </div>
+      <div class="pie-inferior">
+        <span>© 2026 Carlos A. Moreno, Juan D. Fonseca y David S. Sánchez · Grado 10-1</span>
+        <span>Docente: Milton Ney Pedroza Soler · Paipa, Boyacá</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="modal" id="modalReiniciar" role="dialog" aria-modal="true" aria-labelledby="tituloModalReiniciar">
+    <div class="modal-caja">
+      <h3 id="tituloModalReiniciar">¿Reiniciar todo el progreso?</h3>
+      <p>Se borrarán los conceptos visitados, los juegos completados, los récords, el historial y los resultados del quiz y de la evaluación. Esta acción no se puede deshacer.</p>
+      <div class="modal-acciones">
+        <button type="button" class="btn btn-secundario" data-cerrar-modal>Cancelar</button>
+        <button type="button" class="btn btn-peligro" id="btnConfirmarReinicio"><svg class="icono"><use href="#i-reiniciar"/></svg>Sí, reiniciar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/datos.js"></script>
+  <script src="js/grafica.js"></script>
+  <script src="js/juegos.js"></script>
+  <script src="js/evaluacion.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

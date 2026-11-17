@@ -1,0 +1,14 @@
+{
+  "name": "Funciones Cuadráticas · Plataforma 10°",
+  "short_name": "Cuadráticas 10°",
+  "lang": "es-CO",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#2b1d74",
+  "background_color": "#f4f5fb",
+  "description": "Plataforma interactiva de aprendizaje de funciones cuadráticas para grado décimo.",
+  "icons": [
+    { "src": "assets/logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
